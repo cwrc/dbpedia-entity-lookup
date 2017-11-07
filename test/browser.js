@@ -23,7 +23,9 @@ var clock;
 // setup server mocks for each type of call
 [
     {uriBuilderFn: 'getPersonLookupURI', testFixture:resultsFixture},
-    {uriBuilderFn: 'getPlaceLookupURI', testFixture:resultsFixture}
+    {uriBuilderFn: 'getPlaceLookupURI', testFixture:resultsFixture},
+    {uriBuilderFn: 'getOrganizationLookupURI', testFixture:resultsFixture},
+    {uriBuilderFn: 'getTitleLookupURI', testFixture:resultsFixture}
 ].forEach(entityLookup=> {
 
    let uriBuilderFn = dbpedia[entityLookup.uriBuilderFn];
@@ -63,14 +65,14 @@ function doObjectsHaveSameKeys(...objects){
 }
 
 test('lookup builders', (assert)=> {
-    assert.plan(2);
-    ['getPersonLookupURI', 'getPlaceLookupURI'].forEach(uriBuilderMethod => {
+    assert.plan(4);
+    ['getPersonLookupURI', 'getPlaceLookupURI', 'getOrganizationLookupURI', 'getTitleLookupURI'].forEach(uriBuilderMethod => {
         assert.comment(uriBuilderMethod);
         assert.ok(dbpedia[uriBuilderMethod](queryString).includes(queryString), 'should contain the query string');
     });
 });
 
-['findPerson', 'findPlace'].forEach((nameOfLookupFn)=> {
+['findPerson', 'findPlace', 'findOrganization', 'findTitle'].forEach((nameOfLookupFn)=> {
     test(nameOfLookupFn, async function(assert){
         let thisAssert = assert
        // thisAssert.plan(21);
