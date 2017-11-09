@@ -63,9 +63,9 @@ function getTitleLookupURI(queryString) {
     return getEntitySourceURI(queryString, 'work')
 }
 
-async function callDBPedia(url, queryString, queryClass) {
+function callDBPedia(url, queryString, queryClass) {
 
-        let parsedJSON = await fetchWithTimeout(url);
+    return fetchWithTimeout(url).then((parsedJSON)=>{
         return parsedJSON.results.map(
             ({
                  uri,
@@ -74,21 +74,22 @@ async function callDBPedia(url, queryString, queryClass) {
              }) => {
                 return {nameType: queryClass, id: uri, uri, name, repository: 'dbpedia', originalQueryString: queryString, description}
             })
+    })
 }
 
-async function findPerson(queryString) {
+function findPerson(queryString) {
     return callDBPedia(getPersonLookupURI(queryString), queryString, 'person')
 }
 
-async function findPlace(queryString) {
+function findPlace(queryString) {
     return callDBPedia(getPlaceLookupURI(queryString), queryString, 'place')
 }
 
-async function findOrganization(queryString) {
+function findOrganization(queryString) {
     return callDBPedia(getOrganizationLookupURI(queryString), queryString, 'organisation')
 }
 
-async function findTitle(queryString) {
+function findTitle(queryString) {
     return callDBPedia(getTitleLookupURI(queryString), queryString, 'work')
 }
 
