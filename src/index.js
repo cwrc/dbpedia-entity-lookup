@@ -11,7 +11,6 @@
     and not XML.
 */
 
-
 function fetchWithTimeout(url, config = {headers: {'Accept': 'application/json'}}, timeout = 8000) {
 
         return new Promise((resolve, reject) => {
@@ -42,9 +41,7 @@ function fetchWithTimeout(url, config = {headers: {'Accept': 'application/json'}
 // note that this method is exposed on the npm module to simplify testing,
 // i.e., to allow intercepting the HTTP call during testing, using sinon or similar.
 function getEntitySourceURI(queryString, queryClass) {
-
         return `http://lookup.dbpedia.org/api/search/KeywordSearch?QueryClass=${queryClass}&MaxHits=5&QueryString=${encodeURIComponent(queryString)}`
-
 }
 
 function getPersonLookupURI(queryString) {
