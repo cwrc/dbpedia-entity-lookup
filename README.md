@@ -44,13 +44,21 @@ here: https://www.cray.com/blog/dont-use-hammer-screw-nail-alternatives-regex-sp
 
 Dbpedia does, however, provide a search service:
 
-https://github.com/dbpedia/lookup
+```https://github.com/dbpedia/lookup```
 
 a hosted version of which can be accessed at:
 
-http://lookup.dbpedia.org/api/search/KeywordSearch?QueryClass=place&MaxResults=5&QueryString=berlin
+```http://lookup.dbpedia.org/api/search/KeywordSearch?QueryClass=place&MaxResults=5&QueryString=berlin```
 
-which is what we use.  Note that we set an accept header of application/json so we get back json and not the default xml.
+(Note that we set an accept header of application/json so we get back json and not the default xml.)
+
+The hosted Dbpedia lookup does not, however, have an HTTPS endpoint.  And so, we proxy our calls to the dbpedia lookup through own server: 
+ 
+```https://lookup.services.cwrc.ca/dbpedia```
+ 
+to thereby allow the CWRC-Writer to make HTTPS calls to the dbpedia lookup.  
+We can’t make plain HTTP calls from the CWRC-Writer because the CWRC-Writer may only be 
+loaded over HTTPS, and any page loaded with HTTPS is not allowed (by many browsers) to make HTTP AJAX calls.
 
 ### Installation
 
