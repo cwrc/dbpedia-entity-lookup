@@ -110,6 +110,8 @@ and all find* methods return promises that resolve to an object like the followi
    repository: "dbpedia"
    
    uri: "http://dbpedia.org/resource/Paris"
+   
+   uriForDisplay: "https:
     
 }
 ```

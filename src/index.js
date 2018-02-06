@@ -72,7 +72,16 @@ function callDBPedia(url, queryString, queryClass) {
                  label: name,
                  description: description = 'No description available'
              }) => {
-                return {nameType: queryClass, id: uri, uri, name, repository: 'dbpedia', originalQueryString: queryString, description}
+                return {
+                    nameType: queryClass,
+                    id: uri,
+                    uri,
+                    uriForDisplay: uri.replace('http://dbpedia.org', 'https://lookup.services.cwrc.ca/dbpediafull'),
+                    name,
+                    repository: 'dbpedia',
+                    originalQueryString: queryString,
+                    description
+                }
             })
     })
 }
