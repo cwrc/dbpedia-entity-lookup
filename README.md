@@ -60,6 +60,11 @@ to thereby allow the CWRC-Writer to make HTTPS calls to the dbpedia lookup.
 We can’t make plain HTTP calls from the CWRC-Writer because the CWRC-Writer may only be 
 loaded over HTTPS, and any page loaded with HTTPS is not allowed (by many browsers) to make HTTP AJAX calls.
 
+We also rewrite the uri that is returned in the dbpedia results to point to another 
+cwrc proxy:
+
+```https://dbpeida.lookup.services.cwrc.ca```
+
 ### Installation
 
 npm i dbpedia-entity-lookup -S
