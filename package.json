@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/cwrc/dbpedia-entity-lookup#readme",
   "scripts": {
-    "semantic-release": "semantic-release",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "cm": "git-cz",
     "precommit": "npm run test && npm run check-coverage",
     "browserify": "mkdirp build && browserify test/development.js -o build/development.js --debug -t [ babelify --presets [ es2015 ] ]",
