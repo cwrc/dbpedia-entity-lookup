@@ -76,7 +76,7 @@ function callDBPedia(url, queryString, queryClass) {
                     nameType: queryClass,
                     id: uri,
                     uri,
-                    uriForDisplay: uri.replace('http://dbpedia.org', 'https://lookup.services.cwrc.ca/dbpediafull'),
+                    uriForDisplay: uri.replace('http://dbpedia.org', 'https://dbpedia.lookup.services.cwrc.ca'),
                     name,
                     repository: 'dbpedia',
                     originalQueryString: queryString,

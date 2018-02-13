@@ -111,7 +111,7 @@ and all find* methods return promises that resolve to an object like the followi
    
    uri: "http://dbpedia.org/resource/Paris"
    
-   uriForDisplay: "https:
+   uriForDisplay: "https://dbpedia.lookup.services.cwrc.ca/resource/Paris"
     
 }
 ```
