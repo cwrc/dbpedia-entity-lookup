@@ -1,15 +1,15 @@
 ![Picture](http://cwrc.ca/logos/CWRC_logos_2016_versions/CWRCLogo-Horz-FullColour.png)
 
-[![Travis](https://img.shields.io/travis/cwrc/geonames-entity-lookup.svg)](https://travis-ci.org/cwrc/geonames-entity-lookup)
-[![Codecov](https://img.shields.io/codecov/c/github/cwrc/geonames-entity-lookup.svg)](https://codecov.io/gh/cwrc/geonames-entity-lookup)
-[![version](https://img.shields.io/npm/v/geonames-entity-lookup.svg)](http://npm.im/geonames-entity-lookup)
-[![downloads](https://img.shields.io/npm/dm/geonames-entity-lookup.svg)](http://npm-stat.com/charts.html?package=geonames-entity-lookup&from=2015-08-01)
-[![GPL-3.0](https://img.shields.io/npm/l/geonames-entity-lookup.svg)](http://opensource.org/licenses/GPL-3.0)
+[![Travis](https://img.shields.io/travis/cwrc/dbpedia-entity-lookup.svg)](https://travis-ci.org/cwrc/dbpedia-entity-lookup)
+[![Codecov](https://img.shields.io/codecov/c/github/cwrc/dbpedia-entity-lookup.svg)](https://codecov.io/gh/cwrc/dbpedia-entity-lookup)
+[![version](https://img.shields.io/npm/v/dbpedia-entity-lookup.svg)](http://npm.im/dbpedia-entity-lookup)
+[![downloads](https://img.shields.io/npm/dm/dbpedia-entity-lookup.svg)](http://npm-stat.com/charts.html?package=dbpedia-entity-lookup&from=2015-08-01)
+[![GPL-3.0](https://img.shields.io/npm/l/dbpedia-entity-lookup.svg)](http://opensource.org/licenses/GPL-3.0)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)](http://github.com/badges/stability-badges)
 
-# geonames-entity-lookup
+# dbpedia-entity-lookup
 
 1. [Overview](#overview)
 1. [Installation](#installation)
@@ -19,48 +19,73 @@
 
 ### Overview
 
-Finds places in geonames.  Meant to be used with [cwrc-public-entity-dialogs](https://github.com/cwrc-public-entity-dialogs) where it runs in the browser.
+Finds entities (people, places, organizations and titles) in dbpedia.  Meant to be used with [cwrc-public-entity-dialogs](https://github.com/cwrc-public-entity-dialogs) where it runs in the browser.
 
 Although it will not work in node.js as-is, it does use the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) for http requests, and so could likely therefore use a browser/node.js compatible fetch implementation like: [isomorphic-fetch](https://www.npmjs.com/package/isomorphic-fetch).
 
-geonames provides a search service:
+### SPARQL
 
-```https://github.com/geonames/lookup```
+dbpedia supports sparql, but SPARQL has limited support for full text search.  The expectation with SPARQL mostly seems to be that you know exactly what you are matching on
+So, a query that exactly details the label works fine:
+
+SELECT DISTINCT ?s WHERE {
+  ?s ?label "The Rolling Stones"@en .
+  ?s ?p ?o
+}
+
+We'd like, however, to match with full text search, so we can match on partial strings, variant spellings, etc.  
+Just in the simple case above, for example, someone searching for The Rolling Stones would have to fully specify 'The Rolling Stones' and not just 'Rolling Stones'.  If they left out 'The' then their query won't return the result.
+
+There is a SPARQL CONTAINS operator that can be used within a FILTER, and that matches substrings, which is better, and
+CONTAINS does work with dbpedia, but the (admittedly limited) testing we did found it very slow.
+
+There is at least one alternative to CONTAINS - REGEX - but as described 
+here: https://www.cray.com/blog/dont-use-hammer-screw-nail-alternatives-regex-sparql/ REGEX has even worse performance than CONTAINS.  
+
+Dbpedia does, however, provide a search service:
+
+```https://github.com/dbpedia/lookup```
 
 a hosted version of which can be accessed at:
 
-```http://lookup.geonames.org/api/search/KeywordSearch?QueryClass=place&MaxResults=5&QueryString=berlin```
+```http://lookup.dbpedia.org/api/search/KeywordSearch?QueryClass=place&MaxResults=5&QueryString=berlin```
 
 (Note that we set an accept header of application/json so we get back json and not the default xml.)
 
-The hosted geonames lookup does not, however, have an HTTPS endpoint.  And so, we proxy our calls to the geonames lookup through own server: 
+The hosted Dbpedia lookup does not, however, have an HTTPS endpoint.  And so, we proxy our calls to the dbpedia lookup through own server: 
  
-```https://lookup.services.cwrc.ca/geonames```
+```https://lookup.services.cwrc.ca/dbpedia```
  
-to thereby allow the CWRC-Writer to make HTTPS calls to the geonames lookup.  
+to thereby allow the CWRC-Writer to make HTTPS calls to the dbpedia lookup.  
 We can’t make plain HTTP calls from the CWRC-Writer because the CWRC-Writer may only be 
 loaded over HTTPS, and any page loaded with HTTPS is not allowed (by many browsers) to make HTTP AJAX calls.
 
-We also rewrite the uri that is returned in the geonames results so that it uses another
+We also rewrite the uri that is returned in the dbpedia results so that it uses another
 cwrc proxy:
 
-```https://geonames.lookup.services.cwrc.ca```
+```https://dbpedia.lookup.services.cwrc.ca```
 
 which proxies calls to
 
-```http://geonames.org```
+```http://dbpedia.org```
 
 ### Installation
 
-npm i geonames-entity-lookup -S
+npm i dbpedia-entity-lookup -S
 
 ### Use
 
-const geonamesLookup = require('geonames-entity-lookup');
+const dbpediaLookup = require('dbpedia-entity-lookup');
 
 ### API
 
+###### findPerson(query)
+
 ###### findPlace(query)
+
+###### findOrganization(query)  
+  
+###### findTitle(query)  
 
 <br><br>
 where the 'query' argument is an object:  
@@ -68,13 +93,13 @@ where the 'query' argument is an object:
 
 ```
 {
-    entity:  The name of the place the user wants to find.
+    entity:  The name of the thing the user wants to find.
     options: TBD 
 }
 ```
 
 <br>
-findPlace returns a promise that resolve to an object like the following:
+and all find* methods return promises that resolve to an object like the following:
 <br><br>  
 
 ```
@@ -83,7 +108,7 @@ findPlace returns a promise that resolve to an object like the following:
    
    description: "Paris is the capital and largest city of France. It is situated on the river Seine, in northern France, at the heart of the Île-de-Franc…"
    
-   id: "http://geonames.org/resource/Paris"
+   id: "http://dbpedia.org/resource/Paris"
    
    name: "Paris"
    
@@ -91,21 +116,27 @@ findPlace returns a promise that resolve to an object like the following:
    
    originalQueryString: "paris"
    
-   repository: "geonames"
+   repository: "dbpedia"
    
-   uri: "http://geonames.org/resource/Paris"
+   uri: "http://dbpedia.org/resource/Paris"
    
-   uriForDisplay: "https://geonames.lookup.services.cwrc.ca/resource/Paris"
+   uriForDisplay: "https://dbpedia.lookup.services.cwrc.ca/resource/Paris"
     
 }
 ```
 <br><br>
-There is another method mainly made available to facilitate testing (to make it easier to mock calls to the geonames service):
+There are a further four methods that are mainly made available to facilitate testing (to make it easier to mock calls to the dbpedia service):
+
+###### getPersonLookupURI(query)
 
 ###### getPlaceLookupURI(query)
 
+###### getOrganizationLookupURI(query)  
+  
+###### getTitleLookupURI(query) 
+
 <br><br>
-where the 'query' argument is the place name to find and the methods return the geonames URL that in turn returns results for the query.
+where the 'query' argument is the entity name to find and the methods return the dbpedia URL that in turn returns results for the query.
 
 ### Development
 

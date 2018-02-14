@@ -1,23 +1,23 @@
 {
-  "name": "geonames-entity-lookup",
+  "name": "dbpedia-entity-lookup",
   "version": "0.0.0-development",
-  "description": "Find places in geonames.",
+  "description": "Find entities (people, places, organizations, titles) in dbpedia.",
   "main": "src/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cwrc/geonames-entity-lookup.git"
+    "url": "https://github.com/cwrc/dbpedia-entity-lookup.git"
   },
   "keywords": [
-    "geonames",
+    "dbpedia",
     "entity",
     "linked-data"
   ],
   "author": "James Chartrand",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/cwrc/geonames-entity-lookup/issues"
+    "url": "https://github.com/cwrc/dbpedia-entity-lookup/issues"
   },
-  "homepage": "https://github.com/cwrc/geonames-entity-lookup#readme",
+  "homepage": "https://github.com/cwrc/dbpedia-entity-lookup#readme",
   "scripts": {
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "cm": "git-cz",

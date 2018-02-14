@@ -1,161 +1,179 @@
 {
-  "totalResultsCount": 7175,
-  "geonames": [{
-    "adminCode1": "ENG",
-    "lng": "-0.12574",
-    "geonameId": 2643743,
-    "toponymName": "London",
-    "countryId": "2635167",
-    "fcl": "P",
-    "population": 7556900,
-    "countryCode": "GB",
-    "name": "London",
-    "fclName": "city, village,...",
-    "countryName": "United Kingdom",
-    "adminName1": "England",
-    "lat": "51.50853",
-    "fcode": "PPLC"
-  }, {
-    "adminCode1": "08",
-    "lng": "-81.23304",
-    "geonameId": 6058560,
-    "toponymName": "London",
-    "countryId": "6251999",
-    "fcl": "P",
-    "population": 346765,
-    "countryCode": "CA",
-    "name": "London",
-    "fclName": "city, village,...",
-    "countryName": "Canada",
-    "adminName1": "Ontario",
-    "lat": "42.98339",
-    "fcode": "PPL"
-  }, {
-    "adminCode1": "05",
-    "lng": "27.91162",
-    "geonameId": 1006984,
-    "toponymName": "East London",
-    "countryId": "953987",
-    "fcl": "P",
-    "population": 478676,
-    "countryCode": "ZA",
-    "name": "East London",
-    "fclName": "city, village,...",
-    "countryName": "South Africa",
-    "fcodeName": "seat of a second-order administrative division",
-    "adminName1": "Eastern Cape",
-    "lat": "-33.01529",
-    "fcode": "PPLA2"
-  }, {
-    "adminCode1": "CT",
-    "lng": "-72.09952",
-    "geonameId": 4839416,
-    "toponymName": "New London",
-    "countryId": "6252001",
-    "fcl": "P",
-    "population": 27179,
-    "countryCode": "US",
-    "name": "New London",
-    "fclName": "city, village,...",
-    "countryName": "United States",
-    "fcodeName": "populated place",
-    "adminName1": "Connecticut",
-    "lat": "41.35565",
-    "fcode": "PPL"
-  }, {
-    "adminCode1": "ENG",
-    "lng": "-0.45649",
-    "geonameId": 2647216,
-    "toponymName": "London Heathrow Airport",
-    "countryId": "2635167",
-    "fcl": "S",
-    "population": 0,
-    "countryCode": "GB",
-    "name": "Heathrow",
-    "fclName": "spot, building, farm",
-    "countryName": "United Kingdom",
-    "fcodeName": "airport",
-    "adminName1": "England",
-    "lat": "51.47115",
-    "fcode": "AIRP"
-  }, {
-    "adminCode1": "ENG",
-    "lng": "0.05528",
-    "geonameId": 6296599,
-    "toponymName": "London City Airport",
-    "countryId": "2635167",
-    "fcl": "S",
-    "population": 0,
-    "countryCode": "GB",
-    "name": "London City Airport",
-    "fclName": "spot, building, farm",
-    "countryName": "United Kingdom",
-    "fcodeName": "airport",
-    "adminName1": "England",
-    "lat": "51.50528",
-    "fcode": "AIRP"
-  }, {
-    "adminCode1": "CT",
-    "lng": "-71.96646",
-    "geonameId": 4839141,
-    "toponymName": "Mystic",
-    "countryId": "6252001",
-    "fcl": "P",
-    "population": 4205,
-    "countryCode": "US",
-    "name": "Mystic",
-    "fclName": "city, village,...",
-    "countryName": "United States",
-    "fcodeName": "populated place",
-    "adminName1": "Connecticut",
-    "lat": "41.35427",
-    "fcode": "PPL"
-  }, {
-    "adminCode1": "CT",
-    "lng": "-72.07591",
-    "geonameId": 4839843,
-    "toponymName": "Norwich",
-    "countryId": "6252001",
-    "fcl": "P",
-    "population": 39899,
-    "countryCode": "US",
-    "name": "Norwich",
-    "fclName": "city, village,...",
-    "countryName": "United States",
-    "fcodeName": "populated place",
-    "adminName1": "Connecticut",
-    "lat": "41.52426",
-    "fcode": "PPL"
-  }, {
-    "adminCode1": "CT",
-    "lng": "-72.07841",
-    "geonameId": 4835461,
-    "toponymName": "Groton",
-    "countryId": "6252001",
-    "fcl": "P",
-    "population": 9221,
-    "countryCode": "US",
-    "name": "Groton",
-    "fclName": "city, village,...",
-    "countryName": "United States",
-    "fcodeName": "populated place",
-    "adminName1": "Connecticut",
-    "lat": "41.3501",
-    "fcode": "PPL"
-  }, {
-    "adminCode1": "KY",
-    "lng": "-84.08326",
-    "geonameId": 4298960,
-    "toponymName": "London",
-    "countryId": "6252001",
-    "fcl": "P",
-    "population": 8126,
-    "countryCode": "US",
-    "name": "London",
-    "fclName": "city, village,...",
-    "countryName": "United States",
-    "adminName1": "Kentucky",
-    "lat": "37.12898",
-    "fcode": "PPLA2"
-  }]
+  "results": [
+    {
+      "uri": "http://dbpedia.org/resource/Wings_of_Desire",
+      "label": "Wings of Desire",
+      "refCount": 68,
+      "classes": [
+        {
+          "uri": "http://schema.org/Movie",
+          "label": "movie"
+        },
+        {
+          "uri": "http://schema.org/CreativeWork",
+          "label": "creative work"
+        },
+        {
+          "uri": "http://www.w3.org/2002/07/owl#Thing",
+          "label": "owl#Thing"
+        },
+        {
+          "uri": "http://dbpedia.org/ontology/Film",
+          "label": "film"
+        },
+        {
+          "uri": "http://dbpedia.org/ontology/Work",
+          "label": "work"
+        }
+      ],
+      "categories": [
+        {
+          "uri": "http://dbpedia.org/resource/Category:Spanish-language_films",
+          "label": "Spanish-language films"
+        },
+        {
+          "uri": "http://dbpedia.org/resource/Category:Films_set_in_Berlin",
+          "label": "Films set in Berlin"
+        },
+        {
+          "uri": "http://dbpedia.org/resource/Category:Fallen_angels",
+          "label": "Fallen angels"
+        },
+        {
+          "uri": "http://dbpedia.org/resource/Category:Angel_films",
+          "label": "Angel films"
+        },
+        {
+          "uri": "http://dbpedia.org/resource/Category:French-language_films",
+          "label": "French-language films"
+        },
+        {
+          "uri": "http://dbpedia.org/resource/Category:German_films",
+          "label": "German films"
+        },
+        {
+          "uri": "http://dbpedia.org/resource/Category:Turkish-language_films",
+          "label": "Turkish-language films"
+        },
+        {
+          "uri": "http://dbpedia.org/resource/Category:Hebrew-language_films",
+          "label": "Hebrew-language films"
+        },
+        {
+          "uri": "http://dbpedia.org/resource/Category:Fictional_versions_of_real_people",
+          "label": "Fictional versions of real people"
+        },
+        {
+          "uri": "http://dbpedia.org/resource/Category:German_fantasy_films",
+          "label": "German fantasy films"
+        },
+        {
+          "uri": "http://dbpedia.org/resource/Category:1987_films",
+          "label": "1987 films"
+        },
+        {
+          "uri": "http://dbpedia.org/resource/Category:French_fantasy_films",
+          "label": "French fantasy films"
+        },
+        {
+          "uri": "http://dbpedia.org/resource/Category:1980s_fantasy_films",
+          "label": "1980s fantasy films"
+        },
+        {
+          "uri": "http://dbpedia.org/resource/Category:Films_about_the_Berlin_Wall",
+          "label": "Films about the Berlin Wall"
+        },
+        {
+          "uri": "http://dbpedia.org/resource/Category:Romantic_fantasy_films",
+          "label": "Romantic fantasy films"
+        },
+        {
+          "uri": "http://dbpedia.org/resource/Category:English-language_films",
+          "label": "English-language films"
+        },
+        {
+          "uri": "http://dbpedia.org/resource/Category:Films_directed_by_Wim_Wenders",
+          "label": "Films directed by Wim Wenders"
+        },
+        {
+          "uri": "http://dbpedia.org/resource/Category:French_films",
+          "label": "French films"
+        },
+        {
+          "uri": "http://dbpedia.org/resource/Category:German-language_films",
+          "label": "German-language films"
+        }
+      ],
+      "templates": [],
+      "redirects": []
+    },
+    {
+      "uri": "http://dbpedia.org/resource/Berlin_Alexanderplatz",
+      "label": "Berlin Alexanderplatz",
+      "description": "Berlin Alexanderplatz is a 1929 novel by Alfred Döblin and is considered one of the most important and innovative works of the Weimar Republic. The story concerns a small-time criminal, Franz Biberkopf, fresh from prison, who is drawn into the underworld. When his criminal mentor murders the prostitute whom Biberkopf has been relying on as an anchor, he realizes that he will be unable to extricate himself from the underworld into which he has sunk.",
+      "refCount": 31,
+      "classes": [
+        {
+          "uri": "http://schema.org/Book",
+          "label": "book"
+        },
+        {
+          "uri": "http://schema.org/CreativeWork",
+          "label": "creative work"
+        },
+        {
+          "uri": "http://purl.org/ontology/bibo/Book",
+          "label": "http://purl.org/ontology/bibo/ book"
+        },
+        {
+          "uri": "http://www.w3.org/2002/07/owl#Thing",
+          "label": "owl#Thing"
+        },
+        {
+          "uri": "http://dbpedia.org/ontology/WrittenWork",
+          "label": "written work"
+        },
+        {
+          "uri": "http://dbpedia.org/ontology/Book",
+          "label": "book"
+        },
+        {
+          "uri": "http://dbpedia.org/ontology/Work",
+          "label": "work"
+        }
+      ],
+      "categories": [
+        {
+          "uri": "http://dbpedia.org/resource/Category:German_novels",
+          "label": "German novels"
+        },
+        {
+          "uri": "http://dbpedia.org/resource/Category:Novels_adapted_into_films",
+          "label": "Novels adapted into films"
+        },
+        {
+          "uri": "http://dbpedia.org/resource/Category:Novels_about_cities",
+          "label": "Novels about cities"
+        },
+        {
+          "uri": "http://dbpedia.org/resource/Category:1929_novels",
+          "label": "1929 novels"
+        },
+        {
+          "uri": "http://dbpedia.org/resource/Category:Weimar_culture",
+          "label": "Weimar culture"
+        },
+        {
+          "uri": "http://dbpedia.org/resource/Category:Novels_by_Alfred_D%C3%B6blin",
+          "label": "Novels by Alfred Döblin"
+        },
+        {
+          "uri": "http://dbpedia.org/resource/Category:Novels_set_in_Berlin",
+          "label": "Novels set in Berlin"
+        }
+      ],
+      "templates": [],
+      "redirects": []
+    }
+  ]
 }

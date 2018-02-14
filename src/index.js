@@ -17,7 +17,7 @@ function fetchWithTimeout(url, config = {headers: {'Accept': 'application/json'}
             // the reject on the promise in the timeout callback won't have any effect, *unless*
             // the timeout is triggered before the fetch resolves, in which case the setTimeout rejects
             // the whole outer Promise, and the promise from the fetch is dropped entirely.
-            setTimeout(() => reject(new Error('Call to geonames timed out')), timeout);
+            setTimeout(() => reject(new Error('Call to DBPedia timed out')), timeout);
             fetch(url, config).then(resolve, reject);
         }).then(
             response=>{
@@ -26,7 +26,7 @@ function fetchWithTimeout(url, config = {headers: {'Accept': 'application/json'}
                     return response.json()
                 }
                 // if status not ok, through an error
-                throw new Error(`Something wrong with the call to geonames, possibly a problem with the network or the server. HTTP error: ${response.status}`);
+                throw new Error(`Something wrong with the call to DBPedia, possibly a problem with the network or the server. HTTP error: ${response.status}`);
             }/*,
             // instead of handling and rethrowing the error here, we just let it bubble through
             error => {
@@ -40,31 +40,45 @@ function fetchWithTimeout(url, config = {headers: {'Accept': 'application/json'}
 
 // note that this method is exposed on the npm module to simplify testing,
 // i.e., to allow intercepting the HTTP call during testing, using sinon or similar.
-function getPlaceLookupURI(queryString) {
-   // http://api.geonames.org/searchJSON?q=london&maxRows=10&username=demo
-    return `https://secure.geonames.org/searchJSON?q=${encodeURIComponent(queryString)}&maxRows=10`
+function getEntitySourceURI(queryString, queryClass) {
+    // Calls a cwrc proxy (https://lookup.services.cwrc.ca/dbpedia), so that we can make https calls from the browser.
+    // The proxy in turn then calls http://lookup.dbpedia.org
+    // The dbpedia lookup doesn't seem to have an https endpoint
+    return `https://lookup.services.cwrc.ca/dbpedia/api/search/KeywordSearch?QueryClass=${queryClass}&MaxHits=5&QueryString=${encodeURIComponent(queryString)}`
 }
 
-function callGeonamesURL(url, queryString) {
+function getPersonLookupURI(queryString) {
+    return getEntitySourceURI(queryString, 'person')
+}
+
+function getPlaceLookupURI(queryString) {
+    return getEntitySourceURI(queryString, 'place')
+}
+
+function getOrganizationLookupURI(queryString) {
+    return getEntitySourceURI(queryString, 'organisation')
+}
+
+function getTitleLookupURI(queryString) {
+    return getEntitySourceURI(queryString, 'work')
+}
+
+function callDBPedia(url, queryString, queryClass) {
 
     return fetchWithTimeout(url).then((parsedJSON)=>{
-        return parsedJSON.geonames.map(
+        return parsedJSON.results.map(
             ({
-                 toponymName,
-                 adminName1: state = '',
-                 countryName = '',
-                 geonameId,
-                 fcodeName: description = 'No description available'
+                 uri,
+                 label: name,
+                 description: description = 'No description available'
              }) => {
-                let name = `${toponymName} ${state} ${countryName}`;
-                let uri = `http://geonames.org/${geonameId}`
                 return {
-                    nameType: 'place',
+                    nameType: queryClass,
                     id: uri,
                     uri,
-                    uriForDisplay: `https://secure.geonames.org/${geonameId}`,
+                    uriForDisplay: uri.replace('http://dbpedia.org', 'https://dbpedia.lookup.services.cwrc.ca'),
                     name,
-                    repository: 'geonames',
+                    repository: 'dbpedia',
                     originalQueryString: queryString,
                     description
                 }
@@ -72,14 +86,29 @@ function callGeonamesURL(url, queryString) {
     })
 }
 
-
-
-function findPlace(queryString) {
-    return callGeonamesURL(getPlaceLookupURI(queryString), queryString)
+function findPerson(queryString) {
+    return callDBPedia(getPersonLookupURI(queryString), queryString, 'person')
 }
 
+function findPlace(queryString) {
+    return callDBPedia(getPlaceLookupURI(queryString), queryString, 'place')
+}
+
+function findOrganization(queryString) {
+    return callDBPedia(getOrganizationLookupURI(queryString), queryString, 'organisation')
+}
+
+function findTitle(queryString) {
+    return callDBPedia(getTitleLookupURI(queryString), queryString, 'work')
+}
 
 module.exports = {
+    findPerson: findPerson,
     findPlace: findPlace,
-    getPlaceLookupURI: getPlaceLookupURI
+    findOrganization: findOrganization,
+    findTitle: findTitle,
+    getPersonLookupURI: getPersonLookupURI,
+    getPlaceLookupURI: getPlaceLookupURI,
+    getOrganizationLookupURI: getOrganizationLookupURI,
+    getTitleLookupURI: getTitleLookupURI,
 }
