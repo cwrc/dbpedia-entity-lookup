@@ -1,368 +1,164 @@
 {
-  "results": [
-    {
-      "uri": "http://dbpedia.org/resource/Salon_(website)",
-      "label": "Salon (website)",
-      "description": "Salon is a progressive online magazine, with content updated each weekday. Part of Salon Media Group, it was launched in 1995. It was founded by David Talbot, who first served as CEO of Salon Media Group from 1995 to 1999, and serves as its current CEO. It focuses on U.S. politics and current affairs, and on reviews and articles about music, books and films. Salon's headquarters is located west of downtown San Francisco, California. As of November 2010, its editor-in-chief is Kerry Lauerman.",
-      "refCount": 1059,
-      "classes": [
-        {
-          "uri": "http://dbpedia.org/ontology/Website",
-          "label": "website"
-        },
-        {
-          "uri": "http://schema.org/CreativeWork",
-          "label": "creative work"
-        },
-        {
-          "uri": "http://schema.org/WebPage",
-          "label": "web page"
-        },
-        {
-          "uri": "http://www.w3.org/2002/07/owl#Thing",
-          "label": "owl#Thing"
-        },
-        {
-          "uri": "http://dbpedia.org/ontology/Work",
-          "label": "work"
-        }
-      ],
-      "categories": [
-        {
-          "uri": "http://dbpedia.org/resource/Category:Political_media",
-          "label": "Political media"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Internet_properties_established_in_1995",
-          "label": "Internet properties established in 1995"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:American_websites",
-          "label": "American websites"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:American_online_magazines",
-          "label": "American online magazines"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:American_political_websites",
-          "label": "American political websites"
-        }
-      ],
-      "templates": [],
-      "redirects": []
-    },
-    {
-      "uri": "http://dbpedia.org/resource/Nineteen_Eighty-Four",
-      "label": "Nineteen Eighty-Four",
-      "description": "Nineteen Eighty-Four is a novel by George Orwell published in 1949. It is a dystopian novel about Oceania, a society ruled by the oligarchical dictatorship of the Party. Life in the Oceanian province of Airstrip One is a world of perpetual war, pervasive government surveillance, and incessant public mind control, accomplished with a political system euphemistically named English Socialism (Ingsoc), which is administered by a privileged Inner Party elite.",
-      "refCount": 603,
-      "classes": [
-        {
-          "uri": "http://schema.org/Book",
-          "label": "book"
-        },
-        {
-          "uri": "http://schema.org/CreativeWork",
-          "label": "creative work"
-        },
-        {
-          "uri": "http://purl.org/ontology/bibo/Book",
-          "label": "http://purl.org/ontology/bibo/ book"
-        },
-        {
-          "uri": "http://www.w3.org/2002/07/owl#Thing",
-          "label": "owl#Thing"
-        },
-        {
-          "uri": "http://dbpedia.org/ontology/WrittenWork",
-          "label": "written work"
-        },
-        {
-          "uri": "http://dbpedia.org/ontology/Book",
-          "label": "book"
-        },
-        {
-          "uri": "http://dbpedia.org/ontology/Work",
-          "label": "work"
-        }
-      ],
-      "categories": [
-        {
-          "uri": "http://dbpedia.org/resource/Category:British_novels_adapted_into_films",
-          "label": "British novels adapted into films"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:1940s_science_fiction_novels",
-          "label": "1940s science fiction novels"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Nineteen_Eighty-Four",
-          "label": "Nineteen Eighty-Four"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Novels_by_George_Orwell",
-          "label": "Novels by George Orwell"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:1984_in_fiction",
-          "label": "1984 in fiction"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Novels_about_revolutionaries",
-          "label": "Novels about revolutionaries"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Historical_deletion",
-          "label": "Historical deletion"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Political_novels",
-          "label": "Political novels"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:British_science_fiction_novels",
-          "label": "British science fiction novels"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:1949_novels",
-          "label": "1949 novels"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Mass_surveillance",
-          "label": "Mass surveillance"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Prometheus_Award_winning_works",
-          "label": "Prometheus Award winning works"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Dystopian_novels",
-          "label": "Dystopian novels"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:English_novels",
-          "label": "English novels"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Alternate_history_novels",
-          "label": "Alternate history novels"
-        }
-      ],
-      "templates": [],
-      "redirects": []
-    },
-    {
-      "uri": "http://dbpedia.org/resource/American_Dad!",
-      "label": "American Dad!",
-      "description": "American Dad! is an American animated sitcom created by writers and executive producers Seth MacFarlane, Mike Barker and Matt Weitzman for the Fox Broadcasting Company. The series centers on the Smiths, a dysfunctional family consisting of parents Stan and Francine; their children Hayley and Steve; and their anthropomorphic pets Klaus and Roger. The show is set in the fictionalized version of the state Virginia.",
-      "refCount": 483,
-      "classes": [
-        {
-          "uri": "http://schema.org/CreativeWork",
-          "label": "creative work"
-        },
-        {
-          "uri": "http://www.w3.org/2002/07/owl#Thing",
-          "label": "owl#Thing"
-        },
-        {
-          "uri": "http://dbpedia.org/ontology/Work",
-          "label": "work"
-        },
-        {
-          "uri": "http://dbpedia.org/ontology/TelevisionShow",
-          "label": "television show"
-        }
-      ],
-      "categories": [
-        {
-          "uri": "http://dbpedia.org/resource/Category:2005_American_television_series_debuts",
-          "label": "2005 American television series debuts"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:2000s_American_animated_television_series",
-          "label": "2000s American animated television series"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:English-language_television_series",
-          "label": "English-language television series"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:2010s_American_comedy_television_series",
-          "label": "2010s American comedy television series"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Satirical_television_programmes",
-          "label": "Satirical television programmes"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Television_series_about_dysfunctional_families",
-          "label": "Television series about dysfunctional families"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Fox_network_shows",
-          "label": "Fox network shows"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Television_series_by_Fox_Television_Studios",
-          "label": "Television series by Fox Television Studios"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Animated_sitcoms",
-          "label": "Animated sitcoms"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Television_programs_featuring_anthropomorphic_characters",
-          "label": "Television programs featuring anthropomorphic characters"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:2010s_American_animated_television_series",
-          "label": "2010s American animated television series"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:2000s_American_comedy_television_series",
-          "label": "2000s American comedy television series"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:American_Dad!",
-          "label": "American Dad!"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Television_shows_set_in_Virginia",
-          "label": "Television shows set in Virginia"
-        }
-      ],
-      "templates": [],
-      "redirects": []
-    },
-    {
-      "uri": "http://dbpedia.org/resource/Skins_(TV_series)",
-      "label": "Skins (TV series)",
-      "description": "Skins is a BAFTA Award–winning British teen drama that follows the lives of a group of teenagers in Bristol, South West England, through the two years of sixth form. Its controversial storylines have explored issues such as dysfunctional families, mental illness, adolescent sexuality, substance abuse and death. The show was created by father-and-son television writers Bryan Elsley and Jamie Brittain for Company Pictures, and premiered on E4 on 25 January 2007.",
-      "refCount": 439,
-      "classes": [
-        {
-          "uri": "http://schema.org/CreativeWork",
-          "label": "creative work"
-        },
-        {
-          "uri": "http://www.w3.org/2002/07/owl#Thing",
-          "label": "owl#Thing"
-        },
-        {
-          "uri": "http://dbpedia.org/ontology/Work",
-          "label": "work"
-        },
-        {
-          "uri": "http://dbpedia.org/ontology/TelevisionShow",
-          "label": "television show"
-        }
-      ],
-      "categories": [
-        {
-          "uri": "http://dbpedia.org/resource/Category:Bisexuality-related_television_series",
-          "label": "Bisexuality-related television series"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:2000s_British_television_series",
-          "label": "2000s British television series"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:2007_British_television_programme_debuts",
-          "label": "2007 British television programme debuts"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Channel_4_television_programmes",
-          "label": "Channel 4 television programmes"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:British_drama_television_series",
-          "label": "British drama television series"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Television_programmes_shot_in_Bristol",
-          "label": "Television programmes shot in Bristol"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Television_shows_set_in_Bristol",
-          "label": "Television shows set in Bristol"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:British_LGBT-related_television_programmes",
-          "label": "British LGBT-related television programmes"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Teen_dramas",
-          "label": "Teen dramas"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Youth_culture_in_the_United_Kingdom",
-          "label": "Youth culture in the United Kingdom"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:2010s_British_television_series",
-          "label": "2010s British television series"
-        }
-      ],
-      "templates": [],
-      "redirects": []
-    },
-    {
-      "uri": "http://dbpedia.org/resource/Wiktionary",
-      "label": "Wiktionary",
-      "description": "Wiktionary is a multilingual, web-based project to create a free content dictionary, available in 158 languages. Unlike standard dictionaries, it is written collaboratively by volunteers, dubbed \"Wiktionarians\", using wiki software, allowing articles to be changed by almost anyone with access to the website. Like its sister project Wikipedia, Wiktionary is run by the Wikimedia Foundation.",
-      "refCount": 375,
-      "classes": [
-        {
-          "uri": "http://dbpedia.org/ontology/Website",
-          "label": "website"
-        },
-        {
-          "uri": "http://schema.org/CreativeWork",
-          "label": "creative work"
-        },
-        {
-          "uri": "http://schema.org/WebPage",
-          "label": "web page"
-        },
-        {
-          "uri": "http://www.w3.org/2002/07/owl#Thing",
-          "label": "owl#Thing"
-        },
-        {
-          "uri": "http://dbpedia.org/ontology/Work",
-          "label": "work"
-        }
-      ],
-      "categories": [
-        {
-          "uri": "http://dbpedia.org/resource/Category:Wikis",
-          "label": "Wikis"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Internet_properties_established_in_2002",
-          "label": "Internet properties established in 2002"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Online_dictionaries",
-          "label": "Online dictionaries"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Multilingual_websites",
-          "label": "Multilingual websites"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Wikimedia_projects",
-          "label": "Wikimedia projects"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Educational_websites",
-          "label": "Educational websites"
-        }
-      ],
-      "templates": [],
-      "redirects": []
-    }
-  ]
+  "totalResultsCount": 7175,
+  "geonames": [{
+    "adminCode1": "ENG",
+    "lng": "-0.12574",
+    "geonameId": 2643743,
+    "toponymName": "London",
+    "countryId": "2635167",
+    "fcl": "P",
+    "population": 7556900,
+    "countryCode": "GB",
+    "name": "London",
+    "fclName": "city, village,...",
+    "countryName": "United Kingdom",
+    "fcodeName": "capital of a political entity",
+    "adminName1": "England",
+    "lat": "51.50853",
+    "fcode": "PPLC"
+  }, {
+    "adminCode1": "08",
+    "lng": "-81.23304",
+    "geonameId": 6058560,
+    "toponymName": "London",
+    "countryId": "6251999",
+    "fcl": "P",
+    "population": 346765,
+    "countryCode": "CA",
+    "name": "London",
+    "fclName": "city, village,...",
+    "countryName": "Canada",
+    "fcodeName": "populated place",
+    "adminName1": "Ontario",
+    "lat": "42.98339",
+    "fcode": "PPL"
+  }, {
+    "adminCode1": "05",
+    "lng": "27.91162",
+    "geonameId": 1006984,
+    "toponymName": "East London",
+    "countryId": "953987",
+    "fcl": "P",
+    "population": 478676,
+    "countryCode": "ZA",
+    "name": "East London",
+    "fclName": "city, village,...",
+    "countryName": "South Africa",
+    "fcodeName": "seat of a second-order administrative division",
+    "adminName1": "Eastern Cape",
+    "lat": "-33.01529",
+    "fcode": "PPLA2"
+  }, {
+    "adminCode1": "CT",
+    "lng": "-72.09952",
+    "geonameId": 4839416,
+    "toponymName": "New London",
+    "countryId": "6252001",
+    "fcl": "P",
+    "population": 27179,
+    "countryCode": "US",
+    "name": "New London",
+    "fclName": "city, village,...",
+    "countryName": "United States",
+    "fcodeName": "populated place",
+    "adminName1": "Connecticut",
+    "lat": "41.35565",
+    "fcode": "PPL"
+  }, {
+    "adminCode1": "ENG",
+    "lng": "-0.45649",
+    "geonameId": 2647216,
+    "toponymName": "London Heathrow Airport",
+    "countryId": "2635167",
+    "fcl": "S",
+    "population": 0,
+    "countryCode": "GB",
+    "name": "Heathrow",
+    "fclName": "spot, building, farm",
+    "countryName": "United Kingdom",
+    "fcodeName": "airport",
+    "adminName1": "England",
+    "lat": "51.47115",
+    "fcode": "AIRP"
+  }, {
+    "adminCode1": "ENG",
+    "lng": "0.05528",
+    "geonameId": 6296599,
+    "toponymName": "London City Airport",
+    "countryId": "2635167",
+    "fcl": "S",
+    "population": 0,
+    "countryCode": "GB",
+    "name": "London City Airport",
+    "fclName": "spot, building, farm",
+    "countryName": "United Kingdom",
+    "fcodeName": "airport",
+    "adminName1": "England",
+    "lat": "51.50528",
+    "fcode": "AIRP"
+  }, {
+    "adminCode1": "CT",
+    "lng": "-71.96646",
+    "geonameId": 4839141,
+    "toponymName": "Mystic",
+    "countryId": "6252001",
+    "fcl": "P",
+    "population": 4205,
+    "countryCode": "US",
+    "name": "Mystic",
+    "fclName": "city, village,...",
+    "countryName": "United States",
+    "fcodeName": "populated place",
+    "adminName1": "Connecticut",
+    "lat": "41.35427",
+    "fcode": "PPL"
+  }, {
+    "adminCode1": "CT",
+    "lng": "-72.07591",
+    "geonameId": 4839843,
+    "toponymName": "Norwich",
+    "countryId": "6252001",
+    "fcl": "P",
+    "population": 39899,
+    "countryCode": "US",
+    "name": "Norwich",
+    "fclName": "city, village,...",
+    "countryName": "United States",
+    "fcodeName": "populated place",
+    "adminName1": "Connecticut",
+    "lat": "41.52426",
+    "fcode": "PPL"
+  }, {
+    "adminCode1": "CT",
+    "lng": "-72.07841",
+    "geonameId": 4835461,
+    "toponymName": "Groton",
+    "countryId": "6252001",
+    "fcl": "P",
+    "population": 9221,
+    "countryCode": "US",
+    "name": "Groton",
+    "fclName": "city, village,...",
+    "countryName": "United States",
+    "fcodeName": "populated place",
+    "adminName1": "Connecticut",
+    "lat": "41.3501",
+    "fcode": "PPL"
+  }, {
+    "adminCode1": "KY",
+    "lng": "-84.08326",
+    "geonameId": 4298960,
+    "toponymName": "London",
+    "countryId": "6252001",
+    "fcl": "P",
+    "population": 8126,
+    "countryCode": "US",
+    "name": "London",
+    "fclName": "city, village,...",
+    "countryName": "United States",
+    "fcodeName": "seat of a second-order administrative division",
+    "adminName1": "Kentucky",
+    "lat": "37.12898",
+    "fcode": "PPLA2"
+  }]
 }

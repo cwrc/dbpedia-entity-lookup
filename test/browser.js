@@ -1,6 +1,6 @@
 'use strict';
 
-let dbpedia = require('../src/index.js');
+let geonames = require('../src/index.js');
 const path = require('path')
 const tape = require('tape');
 var _test = require('tape-promise').default;
@@ -13,38 +13,32 @@ const queryStringWithNoResults = 'ldfjk';
 const queryStringForTimeout = "chartrand";
 const queryStringForError = "cuff";
 const queryStringForMissingDescriptionInResult = 'blash';
-const expectedResultLength = 5;
+const expectedResultLength = 10;
 const emptyResultFixture = JSON.stringify(require('./httpResponseMocks/noResults.json'));
 const resultsFixture = JSON.stringify(require('./httpResponseMocks/results.json'));
 const noDescResultsFixture = JSON.stringify(require('./httpResponseMocks/resultsWitoutDescription.json'));
 
 var clock;
 
-// setup server mocks for each type of call
-[
-    {uriBuilderFn: 'getPersonLookupURI', testFixture:resultsFixture},
-    {uriBuilderFn: 'getPlaceLookupURI', testFixture:resultsFixture},
-    {uriBuilderFn: 'getOrganizationLookupURI', testFixture:resultsFixture},
-    {uriBuilderFn: 'getTitleLookupURI', testFixture:resultsFixture}
-].forEach(entityLookup=> {
+// setup server mocks
 
-   let uriBuilderFn = dbpedia[entityLookup.uriBuilderFn];
+let uriBuilderFn = geonames.getPlaceLookupURI;
 
-    fetchMock.get(uriBuilderFn(queryString), entityLookup.testFixture);
-    fetchMock.get(uriBuilderFn(queryStringWithNoResults), emptyResultFixture);
-    fetchMock.get(uriBuilderFn(queryStringForTimeout), (url, opts)=> {
-        // This function that we are in is called by fetchMock, instead of calling fetch itself.
-        // We use sinon to advance time without having to actually wait the 8 seconds.
-        clock.tick(8100);
-        // at this point in time, i.e. after 8 seconds have passed, the wrapper we have around our fetch call should have timed out,
-        // and returned a rejected promise.
-        clock.restore();
-        // return the promise that fetchMock is expecting, to avoid errors
-        Promise.resolve()
-    });
-    fetchMock.get(uriBuilderFn(queryStringForError), 500);
-    fetchMock.get(uriBuilderFn(queryStringForMissingDescriptionInResult), noDescResultsFixture)
-})
+fetchMock.get(uriBuilderFn(queryString), resultsFixture);
+fetchMock.get(uriBuilderFn(queryStringWithNoResults), emptyResultFixture);
+fetchMock.get(uriBuilderFn(queryStringForTimeout), (url, opts)=> {
+    // This function that we are in is called by fetchMock, instead of calling fetch itself.
+    // We use sinon to advance time without having to actually wait the 8 seconds.
+    clock.tick(8100);
+    // at this point in time, i.e. after 8 seconds have passed, the wrapper we have around our fetch call should have timed out,
+    // and returned a rejected promise.
+    clock.restore();
+    // return the promise that fetchMock is expecting, to avoid errors
+    Promise.resolve()
+});
+fetchMock.get(uriBuilderFn(queryStringForError), 500);
+fetchMock.get(uriBuilderFn(queryStringForMissingDescriptionInResult), noDescResultsFixture)
+
 
 // babel-plugin-istanbul adds instrumentation to the browserified/babelified bundle, during babelification.
 // When the tests are run on the browserified/babelified bundle, the instrumentation records test coverage and puts it in
@@ -64,82 +58,80 @@ function doObjectsHaveSameKeys(...objects){
     return objects.every(object => union.size === Object.keys(object).length);
 }
 
-test('lookup builders', (assert)=> {
-    assert.plan(4);
-    ['getPersonLookupURI', 'getPlaceLookupURI', 'getOrganizationLookupURI', 'getTitleLookupURI'].forEach(uriBuilderMethod => {
-        assert.comment(uriBuilderMethod);
-        assert.ok(dbpedia[uriBuilderMethod](queryString).includes(queryString), 'should contain the query string');
-    });
+test('lookup builder', (assert)=> {
+    assert.plan(1);
+    assert.comment('getPlaceLookupURI');
+    assert.ok(geonames.getPlaceLookupURI(queryString).includes(queryString), 'should contain the query string');
 });
 
-['findPerson', 'findPlace', 'findOrganization', 'findTitle'].forEach((nameOfLookupFn)=> {
-    test(nameOfLookupFn, async function(assert){
-        let thisAssert = assert
-       // thisAssert.plan(21);
-        let lookupFn = dbpedia[nameOfLookupFn];
-        thisAssert.equal(typeof lookupFn, 'function', 'is a function');
-        let results = await lookupFn(queryString);
-        thisAssert.ok(Array.isArray(results), 'should return an array of results');
-        thisAssert.ok(results.length <= expectedResultLength, `should return fewer than or equal to ${expectedResultLength} results`);
-        results.forEach(singleResult => {
-            thisAssert.ok(doObjectsHaveSameKeys(singleResult, {
-                nameType: '',
-                id: '',
-                uri: '',
-                uriForDisplay: '',
-                name: '',
-                repository: '',
-                originalQueryString: '',
-                description: ''
-            }), 'all results have correct keys')
-            thisAssert.equal(singleResult.originalQueryString, queryString, 'each result should return the original query string')
-        })
 
-        thisAssert.comment('with a result from dbpedia with no Description');
-        results = await lookupFn(queryStringForMissingDescriptionInResult);
-        thisAssert.ok(Array.isArray(results), 'should return an array of results');
-        thisAssert.ok(doObjectsHaveSameKeys(results[0], {
-                nameType: '',
-                id: '',
-                uri: '',
-                uriForDisplay: '',
-                name: '',
-                repository: '',
-                originalQueryString: '',
-                description: ''
-            }), 'should still have all correct keys')
-        thisAssert.equal(results[0].description, 'No description available', 'should show missing description message')
-
-        thisAssert.comment('with no results');
-        results = await lookupFn(queryStringWithNoResults);
-        thisAssert.ok(Array.isArray(results), 'should return an array');
-        thisAssert.equal(results.length, 0, `should return an empty array`)
-
-        thisAssert.comment('with a server error');
-        let shouldBeNullResult = false;
-        shouldBeNullResult = await lookupFn(queryStringForError).catch(error=>{
-             thisAssert.true(true, 'an http error should reject the promise');
-             return false;
-        })
-        thisAssert.comment('a falsey result should be returned')
-        thisAssert.notOk(shouldBeNullResult, 'should be falsey');
-
-        thisAssert.comment('when query times out');
-
-        // use sinon to override the clock used for setTimeout
-        // We manually advance the clock up in the mock
-        clock = sinon.useFakeTimers({
-            now: Date.now(),
-            toFake: ["setTimeout"]
-        });
-        try {
-           await lookupFn(queryStringForTimeout);
-        } catch (err) {
-            thisAssert.ok(true, 'the promise should be rejected')
-        }
-        thisAssert.end()
+test('findPlace', async function(assert){
+    let thisAssert = assert
+   // thisAssert.plan(21);
+    let lookupFn = geonames.findPlace;
+    thisAssert.equal(typeof lookupFn, 'function', 'is a function');
+    let results = await lookupFn(queryString);
+    thisAssert.ok(Array.isArray(results), 'should return an array of results');
+    thisAssert.ok(results.length <= expectedResultLength, `should return fewer than or equal to ${expectedResultLength} results`);
+    results.forEach(singleResult => {
+        thisAssert.ok(doObjectsHaveSameKeys(singleResult, {
+            nameType: '',
+            id: '',
+            uri: '',
+            uriForDisplay: '',
+            name: '',
+            repository: '',
+            originalQueryString: '',
+            description: ''
+        }), 'all results have correct keys')
+        thisAssert.equal(singleResult.originalQueryString, queryString, 'each result should return the original query string')
     })
+
+    thisAssert.comment('with a result from geonames with no Description');
+    results = await lookupFn(queryStringForMissingDescriptionInResult);
+    thisAssert.ok(Array.isArray(results), 'should return an array of results');
+    thisAssert.ok(doObjectsHaveSameKeys(results[0], {
+            nameType: '',
+            id: '',
+            uri: '',
+            uriForDisplay: '',
+            name: '',
+            repository: '',
+            originalQueryString: '',
+            description: ''
+        }), 'should still have all correct keys')
+    thisAssert.equal(results[0].description, 'No description available', 'should show missing description message')
+
+    thisAssert.comment('with no results');
+    results = await lookupFn(queryStringWithNoResults);
+    thisAssert.ok(Array.isArray(results), 'should return an array');
+    thisAssert.equal(results.length, 0, `should return an empty array`)
+
+    thisAssert.comment('with a server error');
+    let shouldBeNullResult = false;
+    shouldBeNullResult = await lookupFn(queryStringForError).catch(error=>{
+         thisAssert.true(true, 'an http error should reject the promise');
+         return false;
+    })
+    thisAssert.comment('a falsey result should be returned')
+    thisAssert.notOk(shouldBeNullResult, 'should be falsey');
+
+    thisAssert.comment('when query times out');
+
+    // use sinon to override the clock used for setTimeout
+    // We manually advance the clock up in the mock
+    clock = sinon.useFakeTimers({
+        now: Date.now(),
+        toFake: ["setTimeout"]
+    });
+    try {
+       await lookupFn(queryStringForTimeout);
+    } catch (err) {
+        thisAssert.ok(true, 'the promise should be rejected')
+    }
+    thisAssert.end()
 })
+
 
 
 
