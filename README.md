@@ -25,7 +25,7 @@ Although it will not work in node.js as-is, it does use the [Fetch API](https://
 
 ### SPARQL
 
-dbpeida supports sparql, but SPARQL has limited support for full text search.  The expectation with SPARQL mostly seems to be that you know exactly what you are matching on
+dbpedia supports sparql, but SPARQL has limited support for full text search.  The expectation with SPARQL mostly seems to be that you know exactly what you are matching on
 So, a query that exactly details the label works fine:
 
 SELECT DISTINCT ?s WHERE {
@@ -37,7 +37,7 @@ We'd like, however, to match with full text search, so we can match on partial s
 Just in the simple case above, for example, someone searching for The Rolling Stones would have to fully specify 'The Rolling Stones' and not just 'Rolling Stones'.  If they left out 'The' then their query won't return the result.
 
 There is a SPARQL CONTAINS operator that can be used within a FILTER, and that matches substrings, which is better, and
-CONTAINS does work with dbpeida, but the (admittedly limited) testing we did found it very slow.
+CONTAINS does work with dbpedia, but the (admittedly limited) testing we did found it very slow.
 
 There is at least one alternative to CONTAINS - REGEX - but as described 
 here: https://www.cray.com/blog/dont-use-hammer-screw-nail-alternatives-regex-sparql/ REGEX has even worse performance than CONTAINS.  
@@ -63,7 +63,7 @@ loaded over HTTPS, and any page loaded with HTTPS is not allowed (by many browse
 We also rewrite the uri that is returned in the dbpedia results so that it uses another
 cwrc proxy:
 
-```https://dbpeida.lookup.services.cwrc.ca```
+```https://dbpedia.lookup.services.cwrc.ca```
 
 which proxies calls to
 
@@ -136,7 +136,7 @@ There are a further four methods that are mainly made available to facilitate te
 ###### getTitleLookupURI(query) 
 
 <br><br>
-where the 'query' argument is the entity name to find and the methods return the dbpeida URL that in turn returns results for the query.
+where the 'query' argument is the entity name to find and the methods return the dbpedia URL that in turn returns results for the query.
 
 ### Development
 
