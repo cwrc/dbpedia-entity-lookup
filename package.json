@@ -1,6 +1,6 @@
 {
   "name": "dbpedia-entity-lookup",
-  "version": "0.0.0-development",
+  "version": "0.0.1-development",
   "description": "Find entities (people, places, organizations, titles) in dbpedia.",
   "main": "src/index.js",
   "repository": {
