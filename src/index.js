@@ -11,7 +11,7 @@
     and not XML.
 */
 
-function fetchWithTimeout(url, config = {headers: {'Accept': 'application/json'}}, timeout = 8000) {
+function fetchWithTimeout(url, config = {headers: {'Accept': 'application/json'}}, timeout = 30000) {
 
         return new Promise((resolve, reject) => {
             // the reject on the promise in the timeout callback won't have any effect, *unless*
