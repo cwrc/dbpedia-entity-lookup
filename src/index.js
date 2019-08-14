@@ -63,6 +63,10 @@ function getTitleLookupURI(queryString) {
     return getEntitySourceURI(queryString, 'work')
 }
 
+function getRSLookupURI(queryString) {
+    return getEntitySourceURI(queryString, 'thing')
+}
+
 function callDBPedia(url, queryString, queryClass) {
 
     return fetchWithTimeout(url).then((parsedJSON)=>{
@@ -102,13 +106,19 @@ function findTitle(queryString) {
     return callDBPedia(getTitleLookupURI(queryString), queryString, 'work')
 }
 
+function findRS(queryString) {
+    return callDBPedia(getRSLookupURI(queryString), queryString, 'thing')
+}
+
 module.exports = {
     findPerson: findPerson,
     findPlace: findPlace,
     findOrganization: findOrganization,
     findTitle: findTitle,
+    findRS: findRS,
     getPersonLookupURI: getPersonLookupURI,
     getPlaceLookupURI: getPlaceLookupURI,
     getOrganizationLookupURI: getOrganizationLookupURI,
     getTitleLookupURI: getTitleLookupURI,
+    getRSLookupURI: getRSLookupURI
 }
