@@ -14,6 +14,7 @@ const emptyResultFixture = JSON.stringify(require('./httpResponseMocks/noResults
 const resultsFixture = JSON.stringify(require('./httpResponseMocks/results.json'));
 const noDescResultsFixture = JSON.stringify(require('./httpResponseMocks/resultsWitoutDescription.json'));
 
+jest.useFakeTimers();
 
 // setup server mocks for each type of call
 [
