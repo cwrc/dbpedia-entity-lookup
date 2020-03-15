@@ -22,7 +22,6 @@
     "type": "git",
     "url": "https://github.com/cwrc/dbpedia-entity-lookup.git"
   },
-
   "scripts": {
     "semantic-release": "semantic-release",
     "cm": "git-cz",
