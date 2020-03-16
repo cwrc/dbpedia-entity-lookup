@@ -33,15 +33,15 @@ jest.useFakeTimers();
         setTimeout(Promise.resolve, 8100);
     });
     fetchMock.get(uriBuilderFn(queryStringForError), 500);
-    fetchMock.get(uriBuilderFn(queryStringForMissingDescriptionInResult), noDescResultsFixture)
-})
+    fetchMock.get(uriBuilderFn(queryStringForMissingDescriptionInResult), noDescResultsFixture);
+});
 
 // from https://stackoverflow.com/a/35047888
 const doObjectsHaveSameKeys = (...objects) => {
     const allKeys = objects.reduce((keys, object) => keys.concat(Object.keys(object)), []);
     const union = new Set(allKeys);
     return objects.every(object => union.size === Object.keys(object).length);
-}
+};
 
 test('lookup builders', () => {
     expect.assertions(5);
@@ -70,8 +70,8 @@ test('lookup builders', () => {
                 description: ''
             })).toBe(true);
             expect(singleResult.originalQueryString).toBe(queryString);
-        })
-    })
+        });
+    });
 
     test(`${nameOfLookupFn} - result without description`, async () => {
         // with a result from dbpedia with no Description
@@ -91,7 +91,7 @@ test('lookup builders', () => {
             description: ''
         })).toBe(true);
         expect(results[0].description).toBe('No description available');
-    })
+    });
 
     test(`${nameOfLookupFn} - no results`, async () => {
         // with no results
@@ -100,7 +100,7 @@ test('lookup builders', () => {
         const results = await dbpedia[nameOfLookupFn](queryStringWithNoResults);
         expect(Array.isArray(results)).toBe(true);
         expect(results.length).toBe(0);
-    })
+    });
 
     test(`${nameOfLookupFn} - server error`, async () => {
         // with a server error
@@ -115,7 +115,7 @@ test('lookup builders', () => {
             })
         // a falsey result should be returned
         expect(shouldBeNullResult).toBeFalsy();
-    })
+    });
 
     test(`${nameOfLookupFn} - times out`, async () => {
         // when query times out
@@ -123,10 +123,6 @@ test('lookup builders', () => {
         await dbpedia[nameOfLookupFn](queryStringForTimeout)
             .catch( () => {
                 expect(true).toBe(true);
-            })
-    })
-})
-
-
-
-
+            });
+    });
+});
