@@ -11,7 +11,7 @@
     and not XML.
 */
 
-const fetchWithTimeout = async (url, config = { headers: {'Accept': 'application/json'}}, time = 30000) => {
+const fetchWithTimeout = (url, config = { headers: {'Accept': 'application/json'}}, time = 30000) => {
 
      /*
         the reject on the promise in the timeout callback won't have any effect, *unless*
@@ -25,24 +25,21 @@ const fetchWithTimeout = async (url, config = { headers: {'Accept': 'application
 			clearTimeout(id);
 			reject('Call to DBPedia timed out')
 		}, time)
-	})
+	});
 
   // Returns a race between our timeout and the passed in promise
 	return Promise.race([
 		fetch(url, config),
 		timeout
-	])
+	]);
 
-}
+};
 
 // note that this method is exposed on the npm module to simplify testing,
 // i.e., to allow intercepting the HTTP call during testing.
 const getEntitySourceURI = (queryString, queryClass) => {
-    // Calls a cwrc proxy (https://lookup.services.cwrc.ca/dbpedia), so that we can make https calls from the browser.
-    // The proxy in turn then calls http://lookup.dbpedia.org
-    // The dbpedia lookup doesn't seem to have an https endpoint
-    return `https://lookup.services.cwrc.ca/dbpedia/api/search/KeywordSearch?QueryClass=${queryClass}&MaxHits=5&QueryString=${encodeURIComponent(queryString)}`
-}
+    return `http://lookup.dbpedia.org/api/search.asmx/KeywordSearch?QueryClass=${queryClass}&MaxHits=5&QueryString=${encodeURIComponent(queryString)}`;
+};
 
 const getPersonLookupURI = (queryString) => getEntitySourceURI(queryString, 'person');
 
@@ -56,17 +53,17 @@ const getRSLookupURI = (queryString) => getEntitySourceURI(queryString, 'thing')
 
 const callDBPedia = async (url, queryString, queryClass) => {
 
-    let response = await fetchWithTimeout(url)
+    const response = await fetchWithTimeout(url)
         .catch((error) => {
             return error;
-        })
+        });
 
     //if status not ok, through an error
-    if (!response.ok) throw new Error(`Something wrong with the call to DBPedia, possibly a problem with the network or the server. HTTP error: ${response.status}`)
+    if (!response.ok) throw new Error(`Something wrong with the call to DBPedia, possibly a problem with the network or the server. HTTP error: ${response.status}`);
     
-    response = await response.json()
+    const responseJson = await response.json();
 
-    const mapResponse = response.results.map(
+    const mapResponse = responseJson.results.map(
         ({
             uri,
             label: name,
@@ -82,7 +79,7 @@ const callDBPedia = async (url, queryString, queryClass) => {
                 originalQueryString: queryString,
                 description
             }
-        })
+        });
 
     return mapResponse;
 }
@@ -108,4 +105,4 @@ export default {
     getOrganizationLookupURI,
     getTitleLookupURI,
     getRSLookupURI
-}
+};
