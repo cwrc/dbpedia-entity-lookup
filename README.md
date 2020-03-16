@@ -25,55 +25,27 @@ Although it will not work in node.js as-is, it does use the [Fetch API](https://
 
 ### SPARQL
 
-dbpedia supports sparql, but SPARQL has limited support for full text search. The expectation with SPARQL mostly seems to be that you know exactly what you are matching on
-So, a query that exactly details the label works fine:
+dbpedia supports sparql, but SPARQL has limited support for full text search. The expectation with SPARQL mostly seems to be that you know exactly what you are matching on. So, a query that exactly details the label works fine:
 
-```query
+```sql
 SELECT DISTINCT ?s WHERE {
   ?s ?label "The Rolling Stones"@en .
   ?s ?p ?o
 }
 ```
 
-We'd like, however, to match with full text search, so we can match on partial strings, variant spellings, etc.  
-Just in the simple case above, for example, someone searching for The Rolling Stones would have to fully specify 'The Rolling Stones' and not just 'Rolling Stones'. If they left out 'The' then their query won't return the result.
+We'd like, however, to match with full text search, so we can match on partial strings, variant spellings, etc. Just in the simple case above, for example, someone searching for The Rolling Stones would have to fully specify 'The Rolling Stones' and not just 'Rolling Stones'. If they left out 'The' then their query won't return the result.
 
-There is a SPARQL CONTAINS operator that can be used within a FILTER, and that matches substrings, which is better, and
-CONTAINS does work with dbpedia, but the (admittedly limited) testing we did found it very slow.
+There is a SPARQL CONTAINS operator that can be used within a FILTER, and that matches substrings, which is better, and CONTAINS does work with dbpedia, but the (admittedly limited) testing we did found it very slow.
 
-There is at least one alternative to CONTAINS - REGEX - but as described
-here: [https://www.cray.com/blog/dont-use-hammer-screw-nail-alternatives-regex-sparql/](https://www.cray.com/blog/dont-use-hammer-screw-nail-alternatives-regex-sparql/) REGEX has even worse performance than CONTAINS.
+There is at least one alternative to CONTAINS - REGEX - but as described here: [https://www.cray.com/blog/dont-use-hammer-screw-nail-alternatives-regex-sparql/](https://www.cray.com/blog/dont-use-hammer-screw-nail-alternatives-regex-sparql/) REGEX has even worse performance than CONTAINS.
 
-Dbpedia does, however, provide a search service:
-
-`https://github.com/dbpedia/lookup`
-
-a hosted version of which can be accessed at:
-
-`http://lookup.dbpedia.org/api/search/KeywordSearch?QueryClass=place&MaxResults=5&QueryString=berlin`
-
+Dbpedia does, however, provide a search service:`https://github.com/dbpedia/lookup` a hosted version of which can be accessed at: `http://lookup.dbpedia.org/api/search/KeywordSearch?QueryClass=place&MaxResults=5&QueryString=berlin`
 (Note that we set an accept header of application/json so we get back json and not the default xml.)
-
-The hosted Dbpedia lookup does not, however, have an HTTPS endpoint. And so, we proxy our calls to the dbpedia lookup through own server:
-
-`https://lookup.services.cwrc.ca/dbpedia`
-
-to thereby allow the CWRC-Writer to make HTTPS calls to the dbpedia lookup.  
-We can’t make plain HTTP calls from the CWRC-Writer because the CWRC-Writer may only be
-loaded over HTTPS, and any page loaded with HTTPS is not allowed (by many browsers) to make HTTP AJAX calls.
-
-We also rewrite the uri that is returned in the dbpedia results so that it uses another
-cwrc proxy:
-
-`https://dbpedia.lookup.services.cwrc.ca`
-
-which proxies calls to
-
-`http://dbpedia.org`
 
 ### Installation
 
-npm i dbpedia-entity-lookup -S
+`npm i dbpedia-entity-lookup`
 
 ## Use
 
@@ -143,8 +115,7 @@ We use [fetch-mock](https://github.com/wheresrhys/fetch-mock) to mock http calls
 
 <!-- ### Code Coverage
 
-We generate code coverage by instrumenting our code with [istanbul](https://github.com/gotwarlost/istanbul) before [browser-run](https://github.com/juliangruber/browser-run) runs the tests,
-then extract the coverage (which [istanbul](https://github.com/gotwarlost/istanbul) writes to the global object, i.e., the window in the browser), format it with [istanbul](https://github.com/gotwarlost/istanbul), and finally report (Travis actually does this for us) to [codecov.io](codecov.io) -->
+We generate code coverage by instrumenting our code with [istanbul](https://github.com/gotwarlost/istanbul) before [browser-run](https://github.com/juliangruber/browser-run) runs the tests, then extract the coverage (which [istanbul](https://github.com/gotwarlost/istanbul) writes to the global object, i.e., the window in the browser), format it with [istanbul](https://github.com/gotwarlost/istanbul), and finally report (Travis actually does this for us) to [codecov.io](codecov.io) -->
 
 <!-- ### Transpilation
 
@@ -156,5 +127,4 @@ We use [Travis](https://travis-ci.org).
 
 #### Release
 
-We follow [SemVer](http://semver.org), which [Semantic Release](https://github.com/semantic-release/semantic-release) makes easy.  
-Semantic Release also writes our commit messages, sets the version number, publishes to NPM, and finally generates a changelog and a release (including a git tag) on GitHub.
+We follow [SemVer](http://semver.org), which [Semantic Release](https://github.com/semantic-release/semantic-release) makes easy. Semantic Release also writes our commit messages, sets the version number, publishes to NPM, and finally generates a changelog and a release (including a git tag) on GitHub.
