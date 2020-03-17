@@ -43,6 +43,10 @@ There is at least one alternative to CONTAINS - REGEX - but as described here: [
 Dbpedia does, however, provide a search service:`https://github.com/dbpedia/lookup` a hosted version of which can be accessed at: `http://lookup.dbpedia.org/api/search/KeywordSearch?QueryClass=place&MaxResults=5&QueryString=berlin`
 (Note that we set an accept header of application/json so we get back json and not the default xml.)
 
+The hosted Dbpedia lookup does not, however, have an HTTPS endpoint. And so, we proxy our calls to the dbpedia lookup through own server: `https://lookup.services.cwrc.ca/dbpedia` to thereby allow the CWRC-Writer to make HTTPS calls to the dbpedia lookup. We can’t make plain HTTP calls from the CWRC-Writer because the CWRC-Writer may only be loaded over HTTPS, and any page loaded with HTTPS is not allowed (by many browsers) to make HTTP AJAX calls.
+
+We also rewrite the uri that is returned in the dbpedia results so that it uses another cwrc proxy: `https://dbpedia.lookup.services.cwrc.ca` which proxies calls to `http://dbpedia.org`.
+
 ### Installation
 
 `npm i dbpedia-entity-lookup`

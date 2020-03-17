@@ -38,7 +38,10 @@ const fetchWithTimeout = (url, config = { headers: {'Accept': 'application/json'
 // note that this method is exposed on the npm module to simplify testing,
 // i.e., to allow intercepting the HTTP call during testing.
 const getEntitySourceURI = (queryString, queryClass) => {
-    return `http://lookup.dbpedia.org/api/search.asmx/KeywordSearch?QueryClass=${queryClass}&MaxHits=5&QueryString=${encodeURIComponent(queryString)}`;
+    // Calls a cwrc proxy (https://lookup.services.cwrc.ca/dbpedia), so that we can make https calls from the browser.
+    // The proxy in turn then calls http://lookup.dbpedia.org
+    // The dbpedia lookup doesn't seem to have an https endpoint
+    return `https://lookup.services.cwrc.ca/dbpedia/api/search/KeywordSearch?QueryClass=${queryClass}&MaxHits=5&QueryString=${encodeURIComponent(queryString)}`;
 };
 
 const getPersonLookupURI = (queryString) => getEntitySourceURI(queryString, 'person');
