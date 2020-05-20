@@ -11,37 +11,32 @@
     and not XML.
 */
 
-const fetchWithTimeout = (url, config = { headers: {'Accept': 'application/json'}}, time = 30000) => {
-
-     /*
+const fetchWithTimeout = (url, config = { headers: { Accept: 'application/json' } }, time = 30000) => {
+    /*
         the reject on the promise in the timeout callback won't have any effect, *unless*
         the timeout is triggered before the fetch resolves, in which case the setTimeout rejects
         the whole outer Promise, and the promise from the fetch is dropped entirely.
     */
 
-    // Create a promise that rejects in <time> milliseconds
+	// Create a promise that rejects in <time> milliseconds
 	const timeout = new Promise((resolve, reject) => {
 		let id = setTimeout(() => {
 			clearTimeout(id);
-			reject('Call to DBPedia timed out')
-		}, time)
+			reject('Call to DBPedia timed out');
+		}, time);
 	});
 
-  // Returns a race between our timeout and the passed in promise
-	return Promise.race([
-		fetch(url, config),
-		timeout
-	]);
-
+	// Returns a race between our timeout and the passed in promise
+	return Promise.race([fetch(url, config), timeout]);
 };
 
 // note that this method is exposed on the npm module to simplify testing,
 // i.e., to allow intercepting the HTTP call during testing.
 const getEntitySourceURI = (queryString, queryClass) => {
-    // Calls a cwrc proxy (https://lookup.services.cwrc.ca/dbpedia), so that we can make https calls from the browser.
-    // The proxy in turn then calls http://lookup.dbpedia.org
-    // The dbpedia lookup doesn't seem to have an https endpoint
-    return `https://lookup.services.cwrc.ca/dbpedia/api/search/KeywordSearch?QueryClass=${queryClass}&MaxHits=5&QueryString=${encodeURIComponent(queryString)}`;
+	// Calls a cwrc proxy (https://lookup.services.cwrc.ca/dbpedia), so that we can make https calls from the browser.
+	// The proxy in turn then calls http://lookup.dbpedia.org
+	// The dbpedia lookup doesn't seem to have an https endpoint
+	return `https://lookup.services.cwrc.ca/dbpedia/api/search/KeywordSearch?QueryClass=${queryClass}&MaxHits=5&QueryString=${encodeURIComponent(queryString)}`;
 };
 
 const getPersonLookupURI = (queryString) => getEntitySourceURI(queryString, 'person');
@@ -55,37 +50,43 @@ const getTitleLookupURI = (queryString) => getEntitySourceURI(queryString, 'work
 const getRSLookupURI = (queryString) => getEntitySourceURI(queryString, 'thing');
 
 const callDBPedia = async (url, queryString, queryClass) => {
-
     const response = await fetchWithTimeout(url)
         .catch((error) => {
             return error;
         });
 
-    //if status not ok, through an error
-    if (!response.ok) throw new Error(`Something wrong with the call to DBPedia, possibly a problem with the network or the server. HTTP error: ${response.status}`);
-    
-    const responseJson = await response.json();
+	//if status not ok, through an error
+	if (!response.ok) {
+		throw new Error(
+			`Something wrong with the call to DBPedia, possibly a problem with the network or the server. HTTP error: ${response.status}`
+        );
+    }
 
-    const mapResponse = responseJson.results.map(
-        ({
-            uri,
-            label: name,
-            description: description = 'No description available'
-        }) => {
-            return {
-                nameType: queryClass,
-                id: uri,
-                uri,
-                uriForDisplay: uri.replace('http://dbpedia.org', 'https://dbpedia.lookup.services.cwrc.ca'),
-                name,
-                repository: 'dbpedia',
-                originalQueryString: queryString,
-                description
-            }
-        });
+	const responseJson = await response.json();
 
-    return mapResponse;
-}
+	const mapResponse = responseJson.results.map(({
+			uri,
+			label: name,
+			description: description = 'No description available',
+		}) => {
+			return {
+				nameType: queryClass,
+				id: uri,
+				uri,
+				uriForDisplay: uri.replace(
+					'http://dbpedia.org',
+					'https://dbpedia.lookup.services.cwrc.ca'
+				),
+				name,
+				repository: 'dbpedia',
+				originalQueryString: queryString,
+				description,
+			};
+		}
+	);
+
+	return mapResponse;
+};
 
 const findPerson = (queryString) => callDBPedia(getPersonLookupURI(queryString), queryString, 'person');
 
@@ -98,14 +99,14 @@ const findTitle = (queryString) => callDBPedia(getTitleLookupURI(queryString), q
 const findRS = (queryString) => callDBPedia(getRSLookupURI(queryString), queryString, 'thing');
 
 export default {
-    findPerson,
-    findPlace,
-    findOrganization,
-    findTitle,
-    findRS,
-    getPersonLookupURI,
-    getPlaceLookupURI,
-    getOrganizationLookupURI,
-    getTitleLookupURI,
-    getRSLookupURI
+	findPerson,
+	findPlace,
+	findOrganization,
+	findTitle,
+	findRS,
+	getPersonLookupURI,
+	getPlaceLookupURI,
+	getOrganizationLookupURI,
+	getTitleLookupURI,
+	getRSLookupURI,
 };
