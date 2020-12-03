@@ -1,12 +1,10 @@
 {
-  "results": [
-    {
+  "results": [{
       "uri": "http://dbpedia.org/resource/Salon_(website)",
       "label": "Salon (website)",
       "description": "Salon is a progressive online magazine, with content updated each weekday. Part of Salon Media Group, it was launched in 1995. It was founded by David Talbot, who first served as CEO of Salon Media Group from 1995 to 1999, and serves as its current CEO. It focuses on U.S. politics and current affairs, and on reviews and articles about music, books and films. Salon's headquarters is located west of downtown San Francisco, California. As of November 2010, its editor-in-chief is Kerry Lauerman.",
       "refCount": 1059,
-      "classes": [
-        {
+      "classes": [{
           "uri": "http://dbpedia.org/ontology/Website",
           "label": "website"
         },
@@ -27,8 +25,7 @@
           "label": "work"
         }
       ],
-      "categories": [
-        {
+      "categories": [{
           "uri": "http://dbpedia.org/resource/Category:Political_media",
           "label": "Political media"
         },
@@ -57,8 +54,7 @@
       "label": "Nineteen Eighty-Four",
       "description": "Nineteen Eighty-Four is a novel by George Orwell published in 1949. It is a dystopian novel about Oceania, a society ruled by the oligarchical dictatorship of the Party. Life in the Oceanian province of Airstrip One is a world of perpetual war, pervasive government surveillance, and incessant public mind control, accomplished with a political system euphemistically named English Socialism (Ingsoc), which is administered by a privileged Inner Party elite.",
       "refCount": 603,
-      "classes": [
-        {
+      "classes": [{
           "uri": "http://schema.org/Book",
           "label": "book"
         },
@@ -87,8 +83,7 @@
           "label": "work"
         }
       ],
-      "categories": [
-        {
+      "categories": [{
           "uri": "http://dbpedia.org/resource/Category:British_novels_adapted_into_films",
           "label": "British novels adapted into films"
         },
@@ -157,8 +152,7 @@
       "label": "American Dad!",
       "description": "American Dad! is an American animated sitcom created by writers and executive producers Seth MacFarlane, Mike Barker and Matt Weitzman for the Fox Broadcasting Company. The series centers on the Smiths, a dysfunctional family consisting of parents Stan and Francine; their children Hayley and Steve; and their anthropomorphic pets Klaus and Roger. The show is set in the fictionalized version of the state Virginia.",
       "refCount": 483,
-      "classes": [
-        {
+      "classes": [{
           "uri": "http://schema.org/CreativeWork",
           "label": "creative work"
         },
@@ -175,8 +169,7 @@
           "label": "television show"
         }
       ],
-      "categories": [
-        {
+      "categories": [{
           "uri": "http://dbpedia.org/resource/Category:2005_American_television_series_debuts",
           "label": "2005 American television series debuts"
         },
@@ -241,8 +234,7 @@
       "label": "Skins (TV series)",
       "description": "Skins is a BAFTA Award–winning British teen drama that follows the lives of a group of teenagers in Bristol, South West England, through the two years of sixth form. Its controversial storylines have explored issues such as dysfunctional families, mental illness, adolescent sexuality, substance abuse and death. The show was created by father-and-son television writers Bryan Elsley and Jamie Brittain for Company Pictures, and premiered on E4 on 25 January 2007.",
       "refCount": 439,
-      "classes": [
-        {
+      "classes": [{
           "uri": "http://schema.org/CreativeWork",
           "label": "creative work"
         },
@@ -259,8 +251,7 @@
           "label": "television show"
         }
       ],
-      "categories": [
-        {
+      "categories": [{
           "uri": "http://dbpedia.org/resource/Category:Bisexuality-related_television_series",
           "label": "Bisexuality-related television series"
         },
@@ -313,8 +304,7 @@
       "label": "Wiktionary",
       "description": "Wiktionary is a multilingual, web-based project to create a free content dictionary, available in 158 languages. Unlike standard dictionaries, it is written collaboratively by volunteers, dubbed \"Wiktionarians\", using wiki software, allowing articles to be changed by almost anyone with access to the website. Like its sister project Wikipedia, Wiktionary is run by the Wikimedia Foundation.",
       "refCount": 375,
-      "classes": [
-        {
+      "classes": [{
           "uri": "http://dbpedia.org/ontology/Website",
           "label": "website"
         },
@@ -335,8 +325,7 @@
           "label": "work"
         }
       ],
-      "categories": [
-        {
+      "categories": [{
           "uri": "http://dbpedia.org/resource/Category:Wikis",
           "label": "Wikis"
         },
