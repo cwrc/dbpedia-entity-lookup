@@ -1,11 +1,9 @@
 {
-  "results": [
-    {
+  "results": [{
       "uri": "http://dbpedia.org/resource/Wings_of_Desire",
       "label": "Wings of Desire",
       "refCount": 68,
-      "classes": [
-        {
+      "classes": [{
           "uri": "http://schema.org/Movie",
           "label": "movie"
         },
@@ -26,8 +24,7 @@
           "label": "work"
         }
       ],
-      "categories": [
-        {
+      "categories": [{
           "uri": "http://dbpedia.org/resource/Category:Spanish-language_films",
           "label": "Spanish-language films"
         },
@@ -112,8 +109,7 @@
       "label": "Berlin Alexanderplatz",
       "description": "Berlin Alexanderplatz is a 1929 novel by Alfred Döblin and is considered one of the most important and innovative works of the Weimar Republic. The story concerns a small-time criminal, Franz Biberkopf, fresh from prison, who is drawn into the underworld. When his criminal mentor murders the prostitute whom Biberkopf has been relying on as an anchor, he realizes that he will be unable to extricate himself from the underworld into which he has sunk.",
       "refCount": 31,
-      "classes": [
-        {
+      "classes": [{
           "uri": "http://schema.org/Book",
           "label": "book"
         },
@@ -142,8 +138,7 @@
           "label": "work"
         }
       ],
-      "categories": [
-        {
+      "categories": [{
           "uri": "http://dbpedia.org/resource/Category:German_novels",
           "label": "German novels"
         },
