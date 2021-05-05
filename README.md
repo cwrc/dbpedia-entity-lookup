@@ -40,12 +40,7 @@ There is a SPARQL CONTAINS operator that can be used within a FILTER, and that m
 
 There is at least one alternative to CONTAINS - REGEX - but as described here: [https://www.cray.com/blog/dont-use-hammer-screw-nail-alternatives-regex-sparql/](https://www.cray.com/blog/dont-use-hammer-screw-nail-alternatives-regex-sparql/) REGEX has even worse performance than CONTAINS.
 
-Dbpedia does, however, provide a search service:`https://github.com/dbpedia/lookup` a hosted version of which can be accessed at: `http://lookup.dbpedia.org/api/search/KeywordSearch?QueryClass=place&MaxResults=5&QueryString=berlin`
-(Note that we set an accept header of application/json so we get back json and not the default xml.)
-
-The hosted Dbpedia lookup does not, however, have an HTTPS endpoint. And so, we proxy our calls to the dbpedia lookup through own server: `https://lookup.services.cwrc.ca/dbpedia` to thereby allow the CWRC-Writer to make HTTPS calls to the dbpedia lookup. We can’t make plain HTTP calls from the CWRC-Writer because the CWRC-Writer may only be loaded over HTTPS, and any page loaded with HTTPS is not allowed (by many browsers) to make HTTP AJAX calls.
-
-We also rewrite the uri that is returned in the dbpedia results so that it uses another cwrc proxy: `https://dbpedia.lookup.services.cwrc.ca` which proxies calls to `http://dbpedia.org`.
+Dbpedia does, however, provide a search service: `https://github.com/dbpedia/lookup` a hosted version of which can be accessed at: `https://lookup.dbpedia.org/api/search/KeywordSearch?QueryClass=place&MaxResults=5&QueryString=berlin&format=json`
 
 ### Installation
 
@@ -78,14 +73,14 @@ and all find* methods return promises that resolve to an object like the followi
 
 ```json
 {
-   "description": "Paris is the capital and largest city of France. It is situated on the river Seine, in northern France, at the heart of the Île-de-Franc…",
-   "id": "http://dbpedia.org/resource/Paris",
-   "name": "Paris",
-   "nameType": "place",
+   "queryClass": "place",
    "originalQueryString": "paris",
    "repository": "dbpedia",
+   "id": "http://dbpedia.org/resource/Paris",
    "uri": "http://dbpedia.org/resource/Paris",
-   "uriForDisplay": "https://dbpedia.lookup.services.cwrc.ca/resource/Paris"
+   "uriForDisplay": "https://dbpedia.lookup.services.cwrc.ca/resource/Paris",
+   name: "Paris",
+   "description": "Paris is the capital and largest city of France. It is situated on the river Seine, in northern France, at the heart of the Île-de-Franc…",
 }
 ```
 
@@ -104,26 +99,6 @@ where the 'query' argument is the entity name to find and the methods return the
 ## Development
 
 [CWRC-Writer-Dev-Docs](https://github.com/cwrc/CWRC-Writer-Dev-Docs) describes general development practices for CWRC-Writer GitHub repositories, including this one.
-
-<!-- ### Testing
-
-The code in this repository is intended to run in the browser, and so we use [browser-run](https://github.com/juliangruber/browser-run) to run [browserified](http://browserify.org) [tape](https://github.com/substack/tape) tests directly in the browser.
-
-We [decorate](https://en.wikipedia.org/wiki/Decorator_pattern) [tape](https://github.com/substack/tape) with [tape-promise](https://github.com/jprichardson/tape-promise) to allow testing with promises and async methods. -->
-
-### Mocking
-
-We use [fetch-mock](https://github.com/wheresrhys/fetch-mock) to mock http calls (which we make using the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) rather than XMLHttpRequest).
-
-<!-- We use [sinon](http://sinonjs.org) [fake timers](http://sinonjs.org/releases/v4.0.1/fake-timers/) to test our timeouts, without having to wait for the timeouts. -->
-
-<!-- ### Code Coverage
-
-We generate code coverage by instrumenting our code with [istanbul](https://github.com/gotwarlost/istanbul) before [browser-run](https://github.com/juliangruber/browser-run) runs the tests, then extract the coverage (which [istanbul](https://github.com/gotwarlost/istanbul) writes to the global object, i.e., the window in the browser), format it with [istanbul](https://github.com/gotwarlost/istanbul), and finally report (Travis actually does this for us) to [codecov.io](codecov.io) -->
-
-<!-- ### Transpilation
-
-We use [babelify](https://github.com/babel/babelify) and [babel-plugin-istanbul](https://github.com/istanbuljs/babel-plugin-istanbul) to compile our code, tests, and code coverage with [babel](https://github.com/babel/babel) -->
 
 ### Continuous Integration
 

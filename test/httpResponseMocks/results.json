@@ -1,357 +1,266 @@
 {
-  "results": [{
-      "uri": "http://dbpedia.org/resource/Salon_(website)",
-      "label": "Salon (website)",
-      "description": "Salon is a progressive online magazine, with content updated each weekday. Part of Salon Media Group, it was launched in 1995. It was founded by David Talbot, who first served as CEO of Salon Media Group from 1995 to 1999, and serves as its current CEO. It focuses on U.S. politics and current affairs, and on reviews and articles about music, books and films. Salon's headquarters is located west of downtown San Francisco, California. As of November 2010, its editor-in-chief is Kerry Lauerman.",
-      "refCount": 1059,
-      "classes": [{
-          "uri": "http://dbpedia.org/ontology/Website",
-          "label": "website"
-        },
-        {
-          "uri": "http://schema.org/CreativeWork",
-          "label": "creative work"
-        },
-        {
-          "uri": "http://schema.org/WebPage",
-          "label": "web page"
-        },
-        {
-          "uri": "http://www.w3.org/2002/07/owl#Thing",
-          "label": "owl#Thing"
-        },
-        {
-          "uri": "http://dbpedia.org/ontology/Work",
-          "label": "work"
-        }
+  "docs": [
+    {
+      "score": ["9336.378"],
+      "refCount": ["67"],
+      "resource": ["http://dbpedia.org/resource/Paris_Hilton"],
+      "redirectlabel": [
+        "Heiress Records",
+        "Can Can (fragrance)",
+        "Heir (fragrance)",
+        "Heiress/Heir (fragrance)",
+        "Heiress (fragrance)",
+        "Just Me (fragrance)",
+        "Louder (<B>Paris</B> Hilton song)",
+        "My BFF(song)",
+        "My BFF",
+        "My BFF (song)",
+        "<B>ParisHilton</B>",
+        "<B>Paris</B> For President",
+        "<B>Paris</B> For President (song)",
+        "<B>Paris</B> Hilton's Dog",
+        "<B>Paris</B> Hilton's dog",
+        "<B>Paris</B> Hilton's second album",
+        "<B>Paris</B> Hilton (fragrance)",
+        "<B>Paris</B> Hilton Energy Plan",
+        "<B>Paris</B> Hilton Responds to McCain Ad",
+        "<B>Paris</B> Hilton energy plan",
+        "<B>Paris</B> W Hilton",
+        "<B>Paris</B> Whitney Hilton",
+        "<B>Paris</B> hilton",
+        "<B>Parishilton</B>",
+        "Siren (fragrance)",
+        "That's Hot",
+        "That's hot",
+        "Tinkerbell (dog)",
+        "Your heiress diary"
       ],
-      "categories": [{
-          "uri": "http://dbpedia.org/resource/Category:Political_media",
-          "label": "Political media"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Internet_properties_established_in_1995",
-          "label": "Internet properties established in 1995"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:American_websites",
-          "label": "American websites"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:American_online_magazines",
-          "label": "American online magazines"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:American_political_websites",
-          "label": "American political websites"
-        }
+      "typeName": ["Person", "Agent"],
+      "comment": [
+        "<B>Paris</B> Whitney Hilton (born February 17, 1981) is an American media personality, businesswoman"
       ],
-      "templates": [],
-      "redirects": []
+      "label": ["<B>Paris</B> Hilton"],
+      "type": ["http://dbpedia.org/ontology/Person", "http://dbpedia.org/ontology/Agent"],
+      "category": [
+        "http://dbpedia.org/resource/Category:1981_births",
+        "http://dbpedia.org/resource/Category:Living_people",
+        "http://dbpedia.org/resource/Category:21st-century_American_singers",
+        "http://dbpedia.org/resource/Category:American_people_of_English_descent",
+        "http://dbpedia.org/resource/Category:American_people_of_Italian_descent",
+        "http://dbpedia.org/resource/Category:American_hip_hop_singers",
+        "http://dbpedia.org/resource/Category:21st-century_American_women_singers",
+        "http://dbpedia.org/resource/Category:American_women_in_electronic_music",
+        "http://dbpedia.org/resource/Category:American_DJs",
+        "http://dbpedia.org/resource/Category:Paris_Hilton",
+        "http://dbpedia.org/resource/Category:American_people_convicted_of_drug_offenses",
+        "http://dbpedia.org/resource/Category:Cash_Money_Records_artists",
+        "http://dbpedia.org/resource/Category:Warner_Records_artists",
+        "http://dbpedia.org/resource/Category:American_memoirists",
+        "http://dbpedia.org/resource/Category:Philanthropists_from_New_York_(state)",
+        "http://dbpedia.org/resource/Category:American_women_non-fiction_writers",
+        "http://dbpedia.org/resource/Category:American_socialites",
+        "http://dbpedia.org/resource/Category:Businesspeople_from_Los_Angeles",
+        "http://dbpedia.org/resource/Category:21st-century_American_actresses",
+        "http://dbpedia.org/resource/Category:Actresses_of_German_descent",
+        "http://dbpedia.org/resource/Category:American_people_of_German_descent",
+        "http://dbpedia.org/resource/Category:American_people_of_Scottish_descent",
+        "http://dbpedia.org/resource/Category:American_autobiographers",
+        "http://dbpedia.org/resource/Category:Participants_in_American_reality_television_series",
+        "http://dbpedia.org/resource/Category:Actresses_from_Los_Angeles",
+        "http://dbpedia.org/resource/Category:American_film_actresses",
+        "http://dbpedia.org/resource/Category:American_television_actresses",
+        "http://dbpedia.org/resource/Category:Writers_from_Los_Angeles",
+        "http://dbpedia.org/resource/Category:American_people_of_Norwegian_descent",
+        "http://dbpedia.org/resource/Category:American_pop_singers",
+        "http://dbpedia.org/resource/Category:American_female_pop_singers",
+        "http://dbpedia.org/resource/Category:American_prisoners_and_detainees",
+        "http://dbpedia.org/resource/Category:Women_autobiographers",
+        "http://dbpedia.org/resource/Category:American_people_of_Irish_descent",
+        "http://dbpedia.org/resource/Category:American_women_philanthropists",
+        "http://dbpedia.org/resource/Category:American_women_television_personalities",
+        "http://dbpedia.org/resource/Category:Female_models_from_New_York_(state)",
+        "http://dbpedia.org/resource/Category:Television_personalities_from_New_York_City",
+        "http://dbpedia.org/resource/Category:Philanthropists_from_California",
+        "http://dbpedia.org/resource/Category:Convent_of_the_Sacred_Heart_(NYC)_alumni",
+        "http://dbpedia.org/resource/Category:American_women_memoirists",
+        "http://dbpedia.org/resource/Category:Conrad_Hilton_family",
+        "http://dbpedia.org/resource/Category:American_female_DJs",
+        "http://dbpedia.org/resource/Category:Richards_family",
+        "http://dbpedia.org/resource/Category:Participants_in_Bulgarian_reality_television_series"
+      ]
     },
     {
-      "uri": "http://dbpedia.org/resource/Nineteen_Eighty-Four",
-      "label": "Nineteen Eighty-Four",
-      "description": "Nineteen Eighty-Four is a novel by George Orwell published in 1949. It is a dystopian novel about Oceania, a society ruled by the oligarchical dictatorship of the Party. Life in the Oceanian province of Airstrip One is a world of perpetual war, pervasive government surveillance, and incessant public mind control, accomplished with a political system euphemistically named English Socialism (Ingsoc), which is administered by a privileged Inner Party elite.",
-      "refCount": 603,
-      "classes": [{
-          "uri": "http://schema.org/Book",
-          "label": "book"
-        },
-        {
-          "uri": "http://schema.org/CreativeWork",
-          "label": "creative work"
-        },
-        {
-          "uri": "http://purl.org/ontology/bibo/Book",
-          "label": "http://purl.org/ontology/bibo/ book"
-        },
-        {
-          "uri": "http://www.w3.org/2002/07/owl#Thing",
-          "label": "owl#Thing"
-        },
-        {
-          "uri": "http://dbpedia.org/ontology/WrittenWork",
-          "label": "written work"
-        },
-        {
-          "uri": "http://dbpedia.org/ontology/Book",
-          "label": "book"
-        },
-        {
-          "uri": "http://dbpedia.org/ontology/Work",
-          "label": "work"
-        }
+      "score": ["5229.173"],
+      "refCount": ["30"],
+      "resource": ["http://dbpedia.org/resource/Prince_Philippe,_Count_of_Paris"],
+      "redirectlabel": [
+        "Louis-Philippe, Comte de <B>Paris</B>",
+        "Louis-Philippe Albert of Orléans, Count of <B>Paris</B>",
+        "Louis-Philippe II",
+        "Louis-philippe II of France",
+        "Louis Philippe Albert Dorleans, Comte de <B>Paris</B>",
+        "Louis Philippe Albert d'Orleans, comte de <B>Paris</B>",
+        "Louis Philippe Albert d'Orleans",
+        "Louis Philippe Albert d'Orléans",
+        "Louis Philippe II",
+        "Marie Isabelle, Comtesse de <B>Paris</B>",
+        "<B>Paris</B>, Louis-Philippe-Albert d'Orléans, comte de, 1838-1894",
+        "Philip, Count of <B>Paris</B>",
+        "Philip VII, Comte de <B>Paris</B>",
+        "Philip VII of France",
+        "Philippe, Comte de <B>Paris</B>",
+        "Philippe, Count of <B>Paris</B>",
+        "Philippe, comte de <B>Paris</B>",
+        "Philippe D'orleans, Comte de <B>Paris</B>",
+        "Philippe VII",
+        "Philippe VII of France",
+        "Philippe d'Orléans (1838-1894)",
+        "Prince Philippe of Orleans",
+        "Prince Philippe of Orléans"
       ],
-      "categories": [{
-          "uri": "http://dbpedia.org/resource/Category:British_novels_adapted_into_films",
-          "label": "British novels adapted into films"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:1940s_science_fiction_novels",
-          "label": "1940s science fiction novels"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Nineteen_Eighty-Four",
-          "label": "Nineteen Eighty-Four"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Novels_by_George_Orwell",
-          "label": "Novels by George Orwell"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:1984_in_fiction",
-          "label": "1984 in fiction"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Novels_about_revolutionaries",
-          "label": "Novels about revolutionaries"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Historical_deletion",
-          "label": "Historical deletion"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Political_novels",
-          "label": "Political novels"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:British_science_fiction_novels",
-          "label": "British science fiction novels"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:1949_novels",
-          "label": "1949 novels"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Mass_surveillance",
-          "label": "Mass surveillance"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Prometheus_Award_winning_works",
-          "label": "Prometheus Award winning works"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Dystopian_novels",
-          "label": "Dystopian novels"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:English_novels",
-          "label": "English novels"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Alternate_history_novels",
-          "label": "Alternate history novels"
-        }
+      "typeName": ["Person", "Royalty", "Agent"],
+      "comment": [
+        "Prince Philippe of Orléans, Count of <B>Paris</B> (Louis Philippe Albert; 24 August 1838 \u2013 8 September"
       ],
-      "templates": [],
-      "redirects": []
+      "label": ["Prince Philippe, Count of <B>Paris</B>"],
+      "type": [
+        "http://dbpedia.org/ontology/Person",
+        "http://dbpedia.org/ontology/Royalty",
+        "http://dbpedia.org/ontology/Agent"
+      ],
+      "category": [
+        "http://dbpedia.org/resource/Category:1838_births",
+        "http://dbpedia.org/resource/Category:Fellows_of_the_Royal_Society",
+        "http://dbpedia.org/resource/Category:1894_deaths",
+        "http://dbpedia.org/resource/Category:Union_Army_officers",
+        "http://dbpedia.org/resource/Category:People_from_Paris",
+        "http://dbpedia.org/resource/Category:Heirs_apparent_who_never_acceded",
+        "http://dbpedia.org/resource/Category:Counts_of_Paris",
+        "http://dbpedia.org/resource/Category:French_Roman_Catholics",
+        "http://dbpedia.org/resource/Category:Burials_at_the_Chapelle_royale_de_Dreux",
+        "http://dbpedia.org/resource/Category:House_of_Orléans",
+        "http://dbpedia.org/resource/Category:Dukes_of_Montpensier",
+        "http://dbpedia.org/resource/Category:Princes_of_France_(Orléans)",
+        "http://dbpedia.org/resource/Category:Orléanist_pretenders_to_the_French_throne"
+      ]
     },
     {
-      "uri": "http://dbpedia.org/resource/American_Dad!",
-      "label": "American Dad!",
-      "description": "American Dad! is an American animated sitcom created by writers and executive producers Seth MacFarlane, Mike Barker and Matt Weitzman for the Fox Broadcasting Company. The series centers on the Smiths, a dysfunctional family consisting of parents Stan and Francine; their children Hayley and Steve; and their anthropomorphic pets Klaus and Roger. The show is set in the fictionalized version of the state Virginia.",
-      "refCount": 483,
-      "classes": [{
-          "uri": "http://schema.org/CreativeWork",
-          "label": "creative work"
-        },
-        {
-          "uri": "http://www.w3.org/2002/07/owl#Thing",
-          "label": "owl#Thing"
-        },
-        {
-          "uri": "http://dbpedia.org/ontology/Work",
-          "label": "work"
-        },
-        {
-          "uri": "http://dbpedia.org/ontology/TelevisionShow",
-          "label": "television show"
-        }
+      "score": ["5096.833"],
+      "refCount": ["16"],
+      "resource": ["http://dbpedia.org/resource/Paris_Jackson"],
+      "redirectlabel": [
+        "<B>Paris</B>-Michael K. J.",
+        "<B>Paris</B>-Michael K. Jackson",
+        "<B>Paris</B>-Michael Katherine Jackson",
+        "<B>Paris</B> Jackson (Kid)",
+        "<B>Paris</B> Jackson (Michael Jackson's Daughter)",
+        "<B>Paris</B> Jackson (activist)",
+        "<B>Paris</B> Jackson (actress)",
+        "<B>Paris</B> Jackson (daughter of Michael Jackson)",
+        "<B>Paris</B> Jackson (model)",
+        "<B>Paris</B> Katherine Jackson",
+        "<B>Paris</B> Michael Jackson",
+        "<B>Paris</B> Michael Katherine Jackson",
+        "<B>Paris</B> jackson",
+        "<B>Paris</B> micheal katherine Jackson"
       ],
-      "categories": [{
-          "uri": "http://dbpedia.org/resource/Category:2005_American_television_series_debuts",
-          "label": "2005 American television series debuts"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:2000s_American_animated_television_series",
-          "label": "2000s American animated television series"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:English-language_television_series",
-          "label": "English-language television series"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:2010s_American_comedy_television_series",
-          "label": "2010s American comedy television series"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Satirical_television_programmes",
-          "label": "Satirical television programmes"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Television_series_about_dysfunctional_families",
-          "label": "Television series about dysfunctional families"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Fox_network_shows",
-          "label": "Fox network shows"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Television_series_by_Fox_Television_Studios",
-          "label": "Television series by Fox Television Studios"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Animated_sitcoms",
-          "label": "Animated sitcoms"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Television_programs_featuring_anthropomorphic_characters",
-          "label": "Television programs featuring anthropomorphic characters"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:2010s_American_animated_television_series",
-          "label": "2010s American animated television series"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:2000s_American_comedy_television_series",
-          "label": "2000s American comedy television series"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:American_Dad!",
-          "label": "American Dad!"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Television_shows_set_in_Virginia",
-          "label": "Television shows set in Virginia"
-        }
+      "typeName": ["Person", "Agent"],
+      "comment": [
+        "<B>Paris</B>-Michael Katherine Jackson (born April 3, 1998) is an American model and actress. She"
       ],
-      "templates": [],
-      "redirects": []
+      "label": ["<B>Paris</B> Jackson"],
+      "type": ["http://dbpedia.org/ontology/Person", "http://dbpedia.org/ontology/Agent"],
+      "category": [
+        "http://dbpedia.org/resource/Category:Living_people",
+        "http://dbpedia.org/resource/Category:LGBT_African_Americans",
+        "http://dbpedia.org/resource/Category:People_from_Los_Angeles",
+        "http://dbpedia.org/resource/Category:Jackson_family_(show_business)",
+        "http://dbpedia.org/resource/Category:21st-century_American_actresses",
+        "http://dbpedia.org/resource/Category:1998_births",
+        "http://dbpedia.org/resource/Category:American_film_actresses",
+        "http://dbpedia.org/resource/Category:American_television_actresses",
+        "http://dbpedia.org/resource/Category:African-American_actresses",
+        "http://dbpedia.org/resource/Category:African-American_female_models",
+        "http://dbpedia.org/resource/Category:American_female_models",
+        "http://dbpedia.org/resource/Category:American_people_of_Australian_descent",
+        "http://dbpedia.org/resource/Category:LGBT_people_from_California",
+        "http://dbpedia.org/resource/Category:LGBT_actresses",
+        "http://dbpedia.org/resource/Category:Female_models_from_California",
+        "http://dbpedia.org/resource/Category:IMG_Models_models",
+        "http://dbpedia.org/resource/Category:People_from_Beverly_Hills,_California",
+        "http://dbpedia.org/resource/Category:LGBT_models",
+        "http://dbpedia.org/resource/Category:Pansexual_people"
+      ]
     },
     {
-      "uri": "http://dbpedia.org/resource/Skins_(TV_series)",
-      "label": "Skins (TV series)",
-      "description": "Skins is a BAFTA Award–winning British teen drama that follows the lives of a group of teenagers in Bristol, South West England, through the two years of sixth form. Its controversial storylines have explored issues such as dysfunctional families, mental illness, adolescent sexuality, substance abuse and death. The show was created by father-and-son television writers Bryan Elsley and Jamie Brittain for Company Pictures, and premiered on E4 on 25 January 2007.",
-      "refCount": 439,
-      "classes": [{
-          "uri": "http://schema.org/CreativeWork",
-          "label": "creative work"
-        },
-        {
-          "uri": "http://www.w3.org/2002/07/owl#Thing",
-          "label": "owl#Thing"
-        },
-        {
-          "uri": "http://dbpedia.org/ontology/Work",
-          "label": "work"
-        },
-        {
-          "uri": "http://dbpedia.org/ontology/TelevisionShow",
-          "label": "television show"
-        }
+      "score": ["4072.5366"],
+      "refCount": ["10"],
+      "resource": ["http://dbpedia.org/resource/Paris_(rapper)"],
+      "redirectlabel": ["<B>Paris</B> (rapper) discography", "<B>Paris</B> discography"],
+      "typeName": ["MusicalArtist", "Person", "Artist", "Agent"],
+      "comment": [
+        "Oscar Jackson, Jr. (born October 29, 1967), better known by his stage name <B>Paris</B>, is an American"
       ],
-      "categories": [{
-          "uri": "http://dbpedia.org/resource/Category:Bisexuality-related_television_series",
-          "label": "Bisexuality-related television series"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:2000s_British_television_series",
-          "label": "2000s British television series"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:2007_British_television_programme_debuts",
-          "label": "2007 British television programme debuts"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Channel_4_television_programmes",
-          "label": "Channel 4 television programmes"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:British_drama_television_series",
-          "label": "British drama television series"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Television_programmes_shot_in_Bristol",
-          "label": "Television programmes shot in Bristol"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Television_shows_set_in_Bristol",
-          "label": "Television shows set in Bristol"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:British_LGBT-related_television_programmes",
-          "label": "British LGBT-related television programmes"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Teen_dramas",
-          "label": "Teen dramas"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Youth_culture_in_the_United_Kingdom",
-          "label": "Youth culture in the United Kingdom"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:2010s_British_television_series",
-          "label": "2010s British television series"
-        }
+      "label": ["<B>Paris</B> (rapper)"],
+      "type": [
+        "http://dbpedia.org/ontology/MusicalArtist",
+        "http://dbpedia.org/ontology/Person",
+        "http://dbpedia.org/ontology/Artist",
+        "http://dbpedia.org/ontology/Agent"
       ],
-      "templates": [],
-      "redirects": []
+      "category": [
+        "http://dbpedia.org/resource/Category:Living_people",
+        "http://dbpedia.org/resource/Category:Political_music",
+        "http://dbpedia.org/resource/Category:21st-century_American_male_musicians",
+        "http://dbpedia.org/resource/Category:21st-century_American_rappers",
+        "http://dbpedia.org/resource/Category:African-American_male_rappers",
+        "http://dbpedia.org/resource/Category:Rappers_from_the_San_Francisco_Bay_Area",
+        "http://dbpedia.org/resource/Category:Rappers_from_California",
+        "http://dbpedia.org/resource/Category:West_Coast_hip_hop_musicians",
+        "http://dbpedia.org/resource/Category:Hardcore_hip_hop_artists",
+        "http://dbpedia.org/resource/Category:Priority_Records_artists",
+        "http://dbpedia.org/resource/Category:American_hip_hop_record_producers",
+        "http://dbpedia.org/resource/Category:Tommy_Boy_Records_artists",
+        "http://dbpedia.org/resource/Category:1967_births",
+        "http://dbpedia.org/resource/Category:University_of_California,_Davis_alumni",
+        "http://dbpedia.org/resource/Category:American_former_Muslims",
+        "http://dbpedia.org/resource/Category:G-funk_artists",
+        "http://dbpedia.org/resource/Category:Former_Nation_of_Islam_members",
+        "http://dbpedia.org/resource/Category:African-American_agnostics"
+      ]
     },
     {
-      "uri": "http://dbpedia.org/resource/Wiktionary",
-      "label": "Wiktionary",
-      "description": "Wiktionary is a multilingual, web-based project to create a free content dictionary, available in 158 languages. Unlike standard dictionaries, it is written collaboratively by volunteers, dubbed \"Wiktionarians\", using wiki software, allowing articles to be changed by almost anyone with access to the website. Like its sister project Wikipedia, Wiktionary is run by the Wikimedia Foundation.",
-      "refCount": 375,
-      "classes": [{
-          "uri": "http://dbpedia.org/ontology/Website",
-          "label": "website"
-        },
-        {
-          "uri": "http://schema.org/CreativeWork",
-          "label": "creative work"
-        },
-        {
-          "uri": "http://schema.org/WebPage",
-          "label": "web page"
-        },
-        {
-          "uri": "http://www.w3.org/2002/07/owl#Thing",
-          "label": "owl#Thing"
-        },
-        {
-          "uri": "http://dbpedia.org/ontology/Work",
-          "label": "work"
-        }
+      "score": ["3912.9094"],
+      "refCount": ["45"],
+      "resource": ["http://dbpedia.org/resource/Liam_Howlett"],
+      "redirectlabel": ["Liam Paul <B>Paris</B> Howlett"],
+      "typeName": ["MusicalArtist", "Person", "Artist", "Agent"],
+      "comment": [
+        "Liam Paul <B>Paris</B> Howlett (born 21 August 1971) is an English record producer, musician, songwriter"
       ],
-      "categories": [{
-          "uri": "http://dbpedia.org/resource/Category:Wikis",
-          "label": "Wikis"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Internet_properties_established_in_2002",
-          "label": "Internet properties established in 2002"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Online_dictionaries",
-          "label": "Online dictionaries"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Multilingual_websites",
-          "label": "Multilingual websites"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Wikimedia_projects",
-          "label": "Wikimedia projects"
-        },
-        {
-          "uri": "http://dbpedia.org/resource/Category:Educational_websites",
-          "label": "Educational websites"
-        }
+      "label": ["Liam Howlett"],
+      "type": [
+        "http://dbpedia.org/ontology/MusicalArtist",
+        "http://dbpedia.org/ontology/Person",
+        "http://dbpedia.org/ontology/Artist",
+        "http://dbpedia.org/ontology/Agent"
       ],
-      "templates": [],
-      "redirects": []
+      "category": [
+        "http://dbpedia.org/resource/Category:Living_people",
+        "http://dbpedia.org/resource/Category:1971_births",
+        "http://dbpedia.org/resource/Category:Remixers",
+        "http://dbpedia.org/resource/Category:Ableton_Live_users",
+        "http://dbpedia.org/resource/Category:English_record_producers",
+        "http://dbpedia.org/resource/Category:Club_DJs",
+        "http://dbpedia.org/resource/Category:Hardcore_techno_musicians",
+        "http://dbpedia.org/resource/Category:English_electronic_musicians",
+        "http://dbpedia.org/resource/Category:English_keyboardists",
+        "http://dbpedia.org/resource/Category:English_techno_musicians",
+        "http://dbpedia.org/resource/Category:Musicians_from_Essex",
+        "http://dbpedia.org/resource/Category:People_from_Braintree,_Essex",
+        "http://dbpedia.org/resource/Category:Big_beat_musicians",
+        "http://dbpedia.org/resource/Category:The_Prodigy_members"
+      ]
     }
   ]
 }
