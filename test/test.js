@@ -3,34 +3,31 @@ import dbpedia from '../src/index.js';
 
 const emptyResultFixture = JSON.stringify(require('./httpResponseMocks/noResults.json'));
 const resultsFixture = JSON.stringify(require('./httpResponseMocks/results.json'));
-const noDescResultsFixture = JSON.stringify(require('./httpResponseMocks/resultsWitoutDescription.json'));
 
-const queryString = 'smith';
+const queryString = 'Paris';
 const queryStringWithNoResults = 'ldfjk';
-const queryStringForTimeout = 'chartrand';
+const queryStringForTimeout = 'testing';
 const queryStringForError = 'cuff';
-const queryStringForMissingDescriptionInResult = 'blash';
 const expectedResultLength = 5;
 
 jest.useFakeTimers();
 
 // setup server mocks for each type of call
 [
-  { uriBuilderFn: 'getPersonLookupURI', testFixture: resultsFixture },
-  { uriBuilderFn: 'getPlaceLookupURI', testFixture: resultsFixture },
-  { uriBuilderFn: 'getOrganizationLookupURI', testFixture: resultsFixture },
-  { uriBuilderFn: 'getTitleLookupURI', testFixture: resultsFixture },
-  { uriBuilderFn: 'getRSLookupURI', testFixture: resultsFixture },
-].forEach((entityLookup) => {
-  const uriBuilderFn = dbpedia[entityLookup.uriBuilderFn];
+  ['getPersonLookupURI', resultsFixture],
+  ['getPlaceLookupURI', resultsFixture],
+  ['getOrganizationLookupURI', resultsFixture],
+  ['getTitleLookupURI', resultsFixture],
+  ['getRSLookupURI', resultsFixture],
+].forEach(([uriBuilderType,testFixture]) => {
+  const uriBuilderFn = dbpedia[uriBuilderType];
 
-  fetchMock.get(uriBuilderFn(queryString), entityLookup.testFixture);
+  fetchMock.get(uriBuilderFn(queryString), testFixture);
   fetchMock.get(uriBuilderFn(queryStringWithNoResults), emptyResultFixture);
   fetchMock.get(uriBuilderFn(queryStringForTimeout), () => {
     setTimeout(Promise.resolve, 8100);
   });
   fetchMock.get(uriBuilderFn(queryStringForError), 500);
-  fetchMock.get(uriBuilderFn(queryStringForMissingDescriptionInResult), noDescResultsFixture);
 });
 
 // from https://stackoverflow.com/a/35047888
@@ -76,28 +73,6 @@ test('lookup builders', () => {
       ).toBe(true);
       expect(singleResult.originalQueryString).toBe(queryString);
     });
-  });
-
-  test(`${nameOfLookupFn} - result without description`, async () => {
-    // with a result from dbpedia with no Description
-    expect.assertions(3);
-
-    const results = await dbpedia[nameOfLookupFn](queryStringForMissingDescriptionInResult);
-
-    expect(Array.isArray(results)).toBe(true);
-    expect(
-      doObjectsHaveSameKeys(results[0], {
-        nameType: '',
-        id: '',
-        uri: '',
-        uriForDisplay: '',
-        name: '',
-        repository: '',
-        originalQueryString: '',
-        description: '',
-      })
-    ).toBe(true);
-    expect(results[0].description).toBe('No description available');
   });
 
   test(`${nameOfLookupFn} - no results`, async () => {
