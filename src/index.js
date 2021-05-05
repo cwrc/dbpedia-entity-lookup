@@ -65,12 +65,12 @@ const callDBPedia = async (url, queryString, queryClass) => {
 
       return {
         nameType: queryClass,
+        originalQueryString: queryString,
+        repository: 'dbpedia',
         id: uri,
         uri,
         uriForDisplay,
         name,
-        repository: 'dbpedia',
-        originalQueryString: queryString,
         description,
       };
     }
