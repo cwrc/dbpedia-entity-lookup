@@ -1,5 +1,11 @@
 import fetchMock from 'fetch-mock';
-import dbpedia from '../src/index.js';
+import dbpedia, {
+  getPersonLookupURI,
+  getPlaceLookupURI,
+  getOrgLookupURI,
+  getTitleLookupURI,
+  getRSLookupURI,
+} from '../src/index.js';
 
 const emptyResultFixture = JSON.stringify(require('./httpResponseMocks/noResults.json'));
 const resultsFixture = JSON.stringify(require('./httpResponseMocks/results.json'));
@@ -13,15 +19,40 @@ const expectedResultLength = 5;
 jest.useFakeTimers();
 
 // setup server mocks for each type of call
-[
-  ['getPersonLookupURI', resultsFixture],
-  ['getPlaceLookupURI', resultsFixture],
-  ['getOrganizationLookupURI', resultsFixture],
-  ['getTitleLookupURI', resultsFixture],
-  ['getRSLookupURI', resultsFixture],
-].forEach(([uriBuilderType,testFixture]) => {
-  const uriBuilderFn = dbpedia[uriBuilderType];
+const lookupTypes = [
+  {
+    name: 'person',
+    lookupFn: dbpedia.findPerson,
+    uriBuilderFn: getPersonLookupURI,
+    testFixture: resultsFixture,
+  },
+  {
+    name: 'place',
+    lookupFn: dbpedia.findPlace,
+    uriBuilderFn: getPlaceLookupURI,
+    testFixture: resultsFixture,
+  },
+  {
+    name: 'organisation',
+    lookupFn: dbpedia.findOrganization,
+    uriBuilderFn: getOrgLookupURI,
+    testFixture: resultsFixture,
+  },
+  {
+    name: 'title',
+    lookupFn: dbpedia.findTitle,
+    uriBuilderFn: getTitleLookupURI,
+    testFixture: resultsFixture,
+  },
+  {
+    name: 'rs',
+    lookupFn: dbpedia.findRS,
+    uriBuilderFn: getRSLookupURI,
+    testFixture: resultsFixture,
+  },
+];
 
+lookupTypes.forEach(({ uriBuilderFn, testFixture }) => {
   fetchMock.get(uriBuilderFn(queryString), testFixture);
   fetchMock.get(uriBuilderFn(queryStringWithNoResults), emptyResultFixture);
   fetchMock.get(uriBuilderFn(queryStringForTimeout), () => {
@@ -39,22 +70,16 @@ const doObjectsHaveSameKeys = (...objects) => {
 
 test('lookup builders', () => {
   expect.assertions(5);
-  [
-    'getPersonLookupURI',
-    'getPlaceLookupURI',
-    'getOrganizationLookupURI',
-    'getTitleLookupURI',
-    'getRSLookupURI',
-  ].forEach((uriBuilderMethod) => {
-    expect(dbpedia[uriBuilderMethod](queryString).includes(queryString)).toBe(true);
+  lookupTypes.forEach(({ uriBuilderFn }) => {
+    expect(uriBuilderFn(queryString).includes(queryString)).toBe(true);
   });
 });
 
-['findPerson', 'findPlace', 'findOrganization', 'findTitle', 'findRS'].forEach((nameOfLookupFn) => {
-  test(`${nameOfLookupFn}`, async () => {
+lookupTypes.forEach(({ name, lookupFn }) => {
+  test(`find ${name}`, async () => {
     expect.assertions(12);
 
-    const results = await dbpedia[nameOfLookupFn](queryString);
+    const results = await lookupFn(queryString);
 
     expect(Array.isArray(results)).toBe(true);
     expect(results.length).toBeLessThanOrEqual(expectedResultLength);
@@ -75,21 +100,21 @@ test('lookup builders', () => {
     });
   });
 
-  test(`${nameOfLookupFn} - no results`, async () => {
+  test(`find ${name} - no results`, async () => {
     // with no results
     expect.assertions(2);
 
-    const results = await dbpedia[nameOfLookupFn](queryStringWithNoResults);
+    const results = await lookupFn(queryStringWithNoResults);
     expect(Array.isArray(results)).toBe(true);
     expect(results.length).toBe(0);
   });
 
-  test(`${nameOfLookupFn} - server error`, async () => {
+  test(`find ${name} - server error`, async () => {
     // with a server error
     expect.assertions(2);
 
     let shouldBeNullResult = false;
-    shouldBeNullResult = await dbpedia[nameOfLookupFn](queryStringForError).catch(() => {
+    shouldBeNullResult = await lookupFn(queryStringForError).catch(() => {
       // an http error should reject the promise
       expect(true).toBe(true);
       return false;
@@ -98,10 +123,10 @@ test('lookup builders', () => {
     expect(shouldBeNullResult).toBeFalsy();
   });
 
-  test(`${nameOfLookupFn} - times out`, async () => {
+  test(`find ${name} - times out`, async () => {
     // when query times out
     expect.assertions(1);
-    await dbpedia[nameOfLookupFn](queryStringForTimeout).catch(() => {
+    await lookupFn(queryStringForTimeout).catch(() => {
       expect(true).toBe(true);
     });
   });
