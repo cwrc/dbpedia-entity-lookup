@@ -13,9 +13,9 @@ jobs:
     - stage: npm release
       if: branch = master
       script:
-        - HUSKY=0
         - npm run report-coverage
         - echo "Deploying to npm ..."
       deploy:
+        skip_cleanup: true
         provider: script
         script: npx semantic-release
