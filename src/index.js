@@ -1,36 +1,16 @@
-const findPerson = (queryString) => {
-  const url = getPersonLookupURI(queryString);
-  return callDBPedia(url, queryString, 'person');
-};
+// used for testing
+export const getPersonLookupURI = (queryString) => getEntitySourceURI(queryString, 'person');
+export const getPlaceLookupURI = (queryString) => getEntitySourceURI(queryString, 'place');
+export const getOrgLookupURI = (queryString) => getEntitySourceURI(queryString, 'organisation');
+export const getTitleLookupURI = (queryString) => getEntitySourceURI(queryString, 'work');
+export const getRSLookupURI = (queryString) => getEntitySourceURI(queryString, 'thing');
 
-const findPlace = (queryString) => {
-  const url = getPlaceLookupURI(queryString);
-  return callDBPedia(url, queryString, 'place');
-};
+const findPerson = (queryString) => callDBPedia(queryString, 'person');
+const findPlace = (queryString) => callDBPedia(queryString, 'place');
+const findOrganization = (queryString) => callDBPedia(queryString, 'organisation');
+const findTitle = (queryString) => callDBPedia(queryString, 'work');
+const findRS = (queryString) => callDBPedia(queryString, 'thing');
 
-const findOrganization = (queryString) => {
-  const url = getOrganizationLookupURI(queryString);
-  return callDBPedia(url, queryString, 'organisation');
-};
-
-const findTitle = (queryString) => {
-  const url = getTitleLookupURI(queryString);
-  return callDBPedia(url, queryString, 'work');
-};
-
-const findRS = (queryString) => {
-  const url = getRSLookupURI(queryString);
-  return callDBPedia(url, queryString, 'thing');
-};
-
-const getPersonLookupURI = (queryString) => getEntitySourceURI(queryString, 'person');
-const getPlaceLookupURI = (queryString) => getEntitySourceURI(queryString, 'place');
-const getOrganizationLookupURI = (queryString) => getEntitySourceURI(queryString, 'organisation');
-const getTitleLookupURI = (queryString) => getEntitySourceURI(queryString, 'work');
-const getRSLookupURI = (queryString) => getEntitySourceURI(queryString, 'thing');
-
-// note that this method is exposed on the npm module to simplify testing,
-// i.e., to allow intercepting the HTTP call during testing.
 const getEntitySourceURI = (queryString, queryClass) => {
   const baseUrl = 'https://lookup.dbpedia.org/api/search/KeywordSearch';
   const maxHits = 5;
@@ -40,14 +20,16 @@ const getEntitySourceURI = (queryString, queryClass) => {
   return `${baseUrl}?QueryClass=${queryClass}&MaxHits=${maxHits}&QueryString=${encodeQueryString}&format=${format}`;
 };
 
-const callDBPedia = async (url, queryString, queryClass) => {
+const callDBPedia = async (queryString, queryClass) => {
+  const url = getEntitySourceURI(queryString, queryClass);
   const response = await fetchWithTimeout(url).catch((error) => {
     return error;
   });
 
   if (!response.ok) {
     throw new Error(
-      `Something wrong with the call to DBPedia, possibly a problem with the network or the server. HTTP error: ${response.status}`
+      `Something wrong with the call to DBPedia, possibly a problem with the network or the server.
+      HTTP error: ${response.status}`
     );
   }
 
@@ -104,9 +86,4 @@ export default {
   findOrganization,
   findTitle,
   findRS,
-  getPersonLookupURI,
-  getPlaceLookupURI,
-  getOrganizationLookupURI,
-  getTitleLookupURI,
-  getRSLookupURI,
 };
